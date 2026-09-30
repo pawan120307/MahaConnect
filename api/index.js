@@ -1,5 +1,9 @@
 require('dotenv').config({ path: require('path').join(__dirname, '../server/.env') });
 const mongoose = require('mongoose');
+
+// Never buffer commands if disconnected; fails fast and falls back to in-memory store
+mongoose.set('bufferCommands', false);
+
 const app = require('../server/app');
 
 let isConnected = false;
@@ -12,13 +16,13 @@ const connectDB = async () => {
   const mongoUri = process.env.MONGODB_URI;
 
   // On Vercel cloud serverless, do not attempt to connect to localhost loopback
-  if (process.env.VERCEL && (!mongoUri || mongoUri.includes('127.0.0.1') || mongoUri.includes('localhost'))) {
-    console.warn('[Vercel Serverless] Cloud MONGODB_URI not configured in Vercel Environment Variables. Set MONGODB_URI (e.g. MongoDB Atlas) in your Vercel Project Settings.');
+  if (!mongoUri || mongoUri.includes('127.0.0.1') || mongoUri.includes('localhost')) {
+    // Cloud MONGODB_URI not configured; will seamlessly use demoFallback in-memory store
     return;
   }
 
   try {
-    const conn = await mongoose.connect(mongoUri || 'mongodb://127.0.0.1:27017/mahaconnect', {
+    const conn = await mongoose.connect(mongoUri, {
       bufferCommands: false,
       serverSelectionTimeoutMS: 3000,
     });

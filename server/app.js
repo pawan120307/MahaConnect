@@ -4,8 +4,13 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
+const mongoose = require('mongoose');
+
+// Globally disable command buffering so Mongoose never hangs for 10 seconds if disconnected
+mongoose.set('bufferCommands', false);
 
 const errorHandler = require('./middleware/errorHandler');
+const demoFallback = require('./middleware/demoFallback');
 
 // Route imports
 const authRoutes = require('./routes/authRoutes');
@@ -26,15 +31,15 @@ app.use(
   })
 );
 
-// Enable CORS
+// Enable CORS (allow localhost and production Vercel frontend)
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: true,
     credentials: true,
   })
 );
 
-// Rate limiting (generous for local academic presentation)
+// Rate limiting (generous for presentation and cloud serverless)
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 1000,
@@ -54,6 +59,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 // Serve uploaded files statically
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Demo / Serverless fallback middleware (handles requests when MongoDB is not connected)
+app.use(demoFallback);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
