@@ -496,10 +496,12 @@ function renderHeroOverviewHtml() {
         </div>
       </div>
       <div class="candidate-box">
-        <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: 700;">Student Author</div>
-        <div style="font-size: 17px; font-weight: 800; color: #ffffff; margin-top: 4px;">Pawan Mishra</div>
-        <div style="font-size: 12px; color: #60a5fa; margin-top: 2px;">TY BSc IT • Semester VI</div>
-        <div style="font-size: 11px; color: #34d399; margin-top: 6px; font-family: monospace;">mahaconnect-rose.vercel.app</div>
+        <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: 700;">Student Authors</div>
+        <div style="font-size: 13px; font-weight: 800; color: #ffffff; margin-top: 4px;">Pawan Mishra (202402104)</div>
+        <div style="font-size: 13px; font-weight: 800; color: #ffffff; margin-top: 2px;">Samarth Nivadunge (202402111)</div>
+        <div style="font-size: 11px; color: #60a5fa; margin-top: 4px;">TY BSc IT • Semester V • 2026–2027</div>
+        <div style="font-size: 10px; color: #34d399; margin-top: 4px; font-family: monospace;">mahaconnect-rose.vercel.app</div>
+        <div style="font-size: 10px; color: #93c5fd; margin-top: 2px; font-family: monospace;">github.com/pawan120307/MahaConnect</div>
       </div>
     </div>
 
