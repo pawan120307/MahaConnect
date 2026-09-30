@@ -111,13 +111,13 @@ function createFigure(filename, caption, description = '') {
     elements.push(
       new Paragraph({
         alignment: AlignmentType.CENTER,
-        spacing: { before: 160, after: 80 },
+        spacing: { before: 80, after: 30 },
         children: [
           new ImageRun({
             data: buf,
             transformation: {
-              width: 530,
-              height: 310,
+              width: 470,
+              height: 220,
             },
           }),
         ],
@@ -128,13 +128,13 @@ function createFigure(filename, caption, description = '') {
   elements.push(
     new Paragraph({
       alignment: AlignmentType.CENTER,
-      spacing: { after: 40 },
+      spacing: { after: 20 },
       children: [
         new TextRun({
           text: caption,
           bold: true,
           font: 'Arial',
-          size: 19,
+          size: 17,
           color: '000000',
         }),
       ],
@@ -145,13 +145,13 @@ function createFigure(filename, caption, description = '') {
     elements.push(
       new Paragraph({
         alignment: AlignmentType.CENTER,
-        spacing: { after: 160 },
+        spacing: { after: 60 },
         children: [
           new TextRun({
             text: description,
             italics: true,
             font: 'Times New Roman',
-            size: 17,
+            size: 15,
             color: '475569',
           }),
         ],
@@ -377,7 +377,7 @@ async function buildDocx() {
           }),
           new Paragraph({
             alignment: AlignmentType.CENTER,
-            spacing: { after: 300 },
+            spacing: { after: 140 },
             children: [
               new TextRun({
                 text: 'Class: TY BSc IT • Semester V',
@@ -385,6 +385,32 @@ async function buildDocx() {
                 size: 20,
                 bold: true,
                 color: '0f2b48',
+              }),
+            ],
+          }),
+          new Paragraph({
+            alignment: AlignmentType.CENTER,
+            spacing: { before: 80, after: 20 },
+            children: [
+              new TextRun({
+                text: 'UNDER THE GUIDANCE OF:',
+                font: 'Arial',
+                size: 18,
+                bold: true,
+                color: '000000',
+              }),
+            ],
+          }),
+          new Paragraph({
+            alignment: AlignmentType.CENTER,
+            spacing: { after: 120 },
+            children: [
+              new TextRun({
+                text: 'MR. PRATHARV SURVE',
+                font: 'Arial',
+                size: 22,
+                bold: true,
+                color: '000000',
               }),
             ],
           }),
@@ -457,12 +483,12 @@ async function buildDocx() {
           // ==================== CERTIFICATE ====================
           new Paragraph({
             alignment: AlignmentType.CENTER,
-            spacing: { before: 100, after: 20 },
+            spacing: { before: 80, after: 20 },
             children: [
               new TextRun({
                 text: "ZSCT'S THAKUR SHYAMNARAYAN DEGREE COLLEGE",
                 font: 'Arial',
-                size: 24,
+                size: 23,
                 bold: true,
                 color: '000000',
               }),
@@ -470,23 +496,23 @@ async function buildDocx() {
           }),
           new Paragraph({
             alignment: AlignmentType.CENTER,
-            spacing: { after: 30 },
+            spacing: { after: 20 },
             children: [
               new TextRun({
                 text: '(Affiliated to University of Mumbai)\nMUMBAI – MAHARASHTRA – 400101',
                 font: 'Times New Roman',
-                size: 18,
+                size: 17,
               }),
             ],
           }),
           new Paragraph({
             alignment: AlignmentType.CENTER,
-            spacing: { after: 160 },
+            spacing: { after: 140 },
             children: [
               new TextRun({
                 text: 'DEPARTMENT OF INFORMATION TECHNOLOGY',
                 font: 'Arial',
-                size: 20,
+                size: 19,
                 bold: true,
                 color: '0f2b48',
               }),
@@ -499,20 +525,20 @@ async function buildDocx() {
             false
           ),
           createParagraph(
-            'The candidates have completed the project work under the guidance of the Department of Information Technology and have demonstrated their understanding of full-stack web development, MERN technology integration, RESTful API communication, database management, authentication, authorization, and government-platform interoperability modeling.',
+            'The candidates have completed the project work under the guidance of Mr. Pratharv Surve (Project Guide) and the Department of Information Technology, demonstrating a comprehensive understanding of full-stack MERN web engineering, RESTful API interoperability, role-based access control, and asynchronous citizen service automation.',
             true,
             false
           ),
-          new Paragraph({ spacing: { before: 600 } }),
+          new Paragraph({ spacing: { before: 450 } }),
           createTable([
-            ['PROJECT GUIDE', 'HEAD OF DEPARTMENT', 'PRINCIPAL'],
-            ['[PROJECT GUIDE NAME]', 'Dept. of Information Technology', 'Thakur Shyamnarayan Degree College'],
+            ['MR. PRATHARV SURVE', 'HEAD OF DEPARTMENT', 'PRINCIPAL'],
+            ['Project Guide\nDept. of Information Technology', 'Dept. of Information Technology', 'Thakur Shyamnarayan Degree College'],
           ]),
 
           // Page Break to Declaration
           new Paragraph({ children: [new PageBreak()] }),
 
-          // ==================== DECLARATION & ACKNOWLEDGEMENT ====================
+          // ==================== DECLARATION ====================
           createChapterTitle('DECLARATION'),
           createParagraph(
             'We, Pawan Mishra and Samarth Nivadunge, hereby declare that the capstone project report entitled "MahaConnect – Government Platform Interoperability System", submitted to the Department of Information Technology in partial fulfillment of the requirements for the award of the Degree of Bachelor of Science in Information Technology (TY BSc IT), is an authentic record of original work carried out by us under institutional academic guidance.',
@@ -526,7 +552,7 @@ async function buildDocx() {
           ),
           new Paragraph({
             alignment: AlignmentType.RIGHT,
-            spacing: { before: 200, after: 200 },
+            spacing: { before: 180, after: 180 },
             children: [
               new TextRun({ text: 'PAWAN MISHRA\n', bold: true }),
               new TextRun({ text: 'Roll No: 202402104\n\n' }),
@@ -537,6 +563,10 @@ async function buildDocx() {
             ],
           }),
 
+          // Page Break to Acknowledgement
+          new Paragraph({ children: [new PageBreak()] }),
+
+          // ==================== ACKNOWLEDGEMENT ====================
           createChapterTitle('ACKNOWLEDGEMENT'),
           createParagraph(
             'We express our sincere gratitude to the University of Mumbai and ZSCT\'s Thakur Shyamnarayan Degree College, Department of Information Technology, for providing us with the opportunity to undertake this capstone project.',
@@ -544,12 +574,12 @@ async function buildDocx() {
             false
           ),
           createParagraph(
-            'We are deeply thankful to our Principal, Head of the Department, faculty members, and project guide for their continuous guidance, encouragement, valuable suggestions, and constructive feedback throughout the development of MahaConnect.',
+            'We are deeply thankful to our Principal, Head of the Department, and faculty members for their continuous institutional encouragement, valuable suggestions, and constructive feedback throughout the development lifecycle of MahaConnect.',
             true,
             false
           ),
           createParagraph(
-            'We would like to express our special appreciation to our project guide for providing technical guidance in MERN stack development, RESTful API integration, database management, authentication, authorization, and interoperability concepts.',
+            'We express our sincere and heartfelt appreciation to our project guide, Mr. Pratharv Surve, for his invaluable mentorship, rigorous technical supervision, architectural review, and continuous encouragement across all phases of MERN stack integration, RESTful API design, database modeling, and government platform interoperability simulation.',
             true,
             false
           ),
@@ -587,18 +617,18 @@ async function buildDocx() {
           createTable([
             ['Sr. No.', 'Content / Chapter Title', 'Page No.'],
             ['1.0', 'CHAPTER 1 – INTRODUCTION', '1'],
-            ['2.0', 'CHAPTER 2 – LITERATURE REVIEW & EXISTING SYSTEMS', '4'],
-            ['3.0', 'CHAPTER 3 – SYSTEM ARCHITECTURE & INTEROPERABILITY MODEL', '7'],
-            ['4.0', 'CHAPTER 4 – SYSTEM REQUIREMENTS & TECHNOLOGIES USED', '11'],
-            ['5.0', 'CHAPTER 5 – SYSTEM ANALYSIS & FEASIBILITY STUDY', '14'],
-            ['6.0', 'CHAPTER 6 – SYSTEM DESIGN, DFD & DATABASE MODELING', '17'],
-            ['7.0', 'CHAPTER 7 – FULL-STACK IMPLEMENTATION DETAILS', '22'],
-            ['8.0', 'CHAPTER 8 – SECURITY, CRYPTOGRAPHY & ACCESS CONTROL', '28'],
-            ['9.0', 'CHAPTER 9 – TESTING & VALIDATION', '32'],
-            ['10.0', 'CHAPTER 10 – RESULTS, CONCLUSION & FUTURE SCOPE', '36'],
-            ['11.0', 'PROJECT SCREENSHOTS & IMPLEMENTATION PHOTOS', '39'],
-            ['12.0', 'PROJECT DETAILS PAGE', '55'],
-            ['13.0', 'REFERENCES / BIBLIOGRAPHY', '56'],
+            ['2.0', 'CHAPTER 2 – LITERATURE REVIEW & EXISTING SYSTEMS', '3'],
+            ['3.0', 'CHAPTER 3 – SYSTEM ARCHITECTURE & INTEROPERABILITY MODEL', '4'],
+            ['4.0', 'CHAPTER 4 – SYSTEM REQUIREMENTS & TECHNOLOGIES USED', '7'],
+            ['5.0', 'CHAPTER 5 – SYSTEM ANALYSIS & FEASIBILITY STUDY', '8'],
+            ['6.0', 'CHAPTER 6 – SYSTEM DESIGN, DFD & DATABASE MODELING', '9'],
+            ['7.0', 'CHAPTER 7 – FULL-STACK IMPLEMENTATION DETAILS', '12'],
+            ['8.0', 'CHAPTER 8 – SECURITY, CRYPTOGRAPHY & ACCESS CONTROL', '13'],
+            ['9.0', 'CHAPTER 9 – TESTING & VALIDATION', '14'],
+            ['10.0', 'CHAPTER 10 – RESULTS, CONCLUSION & FUTURE SCOPE', '15'],
+            ['11.0', 'PROJECT SCREENSHOTS & IMPLEMENTATION PHOTOS', '16'],
+            ['12.0', 'PROJECT DETAILS PAGE', '27'],
+            ['13.0', 'REFERENCES / BIBLIOGRAPHY', '28'],
           ]),
 
           // Page Break to List of Figures
@@ -607,33 +637,33 @@ async function buildDocx() {
           createChapterTitle('LIST OF FIGURES'),
           createTable([
             ['Figure No.', 'Figure Title', 'Page No.'],
-            ['Figure 1', 'MahaConnect System Architecture Diagram', '7'],
-            ['Figure 2', 'Gateway Interoperability Sequence Flow', '8'],
-            ['Figure 3', 'Data Flow Diagram (DFD Level 0 – Context Diagram)', '18'],
-            ['Figure 4', 'Data Flow Diagram (DFD Level 1 – Functional Decomposition)', '19'],
-            ['Figure 5', 'Database Entity-Relationship (ER) Model', '20'],
-            ['Figure 6', 'MahaConnect Public Landing Page & Citizen Gateway', '39'],
-            ['Figure 7', 'Unified Authentication Portal with Seeded Demo Credentials', '40'],
-            ['Figure 8', 'Citizen Self-Service Dashboard with Metric Cards & Quick Navigation', '41'],
-            ['Figure 9', 'Cross-Departmental Government Services Directory with Filtering', '42'],
-            ['Figure 10', 'Dynamic Application Form Wizard: Step 1 (Personal Demographics)', '43'],
-            ['Figure 11', 'Client-Side Form Validation Alert & Error Prevention', '44'],
-            ['Figure 12', 'Document Upload & Multi-Format Verification', '45'],
-            ['Figure 13', 'Application Submission Confirmation & Unique Reference Generation', '46'],
-            ['Figure 14', 'Live Citizen Tracking Timeline with Multi-Stage Progression', '47'],
-            ['Figure 15', 'Department Officer Scrutiny Console & Pending Application Queue', '48'],
-            ['Figure 16', 'Officer Application Scrutiny Dossier with Inline Document Viewer', '49'],
-            ['Figure 17', 'Officer Status Transition Pipeline & Remarks Endorsement', '50'],
-            ['Figure 18', 'State Administrator Governance Dashboard & Interoperability KPIs', '51'],
-            ['Figure 19', 'State Department Management Console & Endpoint Configuration', '52'],
-            ['Figure 20', 'Service Schema Configuration & Dynamic Field Definition', '52'],
-            ['Figure 21', 'REST API Interoperability Gateway Logs & Modal Payload Inspector', '53'],
-            ['Figure 22', 'Postman Test Suite: GET /api/departments (Status 200 OK)', '53'],
-            ['Figure 23', 'Postman Test Suite: POST /api/auth/login (JWT Token Generation)', '54'],
-            ['Figure 24', 'Postman Test Suite: PATCH /api/applications/:id/status', '54'],
-            ['Figure 25', 'Postman Test Suite: DELETE /api/departments/:id (Integrity Check)', '54'],
-            ['Figure 26', 'MongoDB Shell (mongosh) Collection & Query Ledger Inspection', '55'],
-            ['Figure 27', 'MahaConnect Final Working Multi-Portal Application Showcase', '55'],
+            ['Figure 1', 'MahaConnect System Architecture Diagram', '4'],
+            ['Figure 2', 'Gateway Interoperability Sequence Flow', '5'],
+            ['Figure 3', 'Data Flow Diagram (DFD Level 0 – Context Diagram)', '9'],
+            ['Figure 4', 'Data Flow Diagram (DFD Level 1 – Functional Decomposition)', '10'],
+            ['Figure 5', 'Database Entity-Relationship (ER) Model', '10'],
+            ['Figure 6', 'MahaConnect Public Landing Page & Citizen Gateway', '16'],
+            ['Figure 7', 'Unified Authentication Portal with Seeded Demo Credentials', '16'],
+            ['Figure 8', 'Citizen Self-Service Dashboard with Metric Cards & Quick Navigation', '17'],
+            ['Figure 9', 'Cross-Departmental Government Services Directory with Filtering', '17'],
+            ['Figure 10', 'Dynamic Application Form Wizard: Step 1 (Personal Demographics)', '18'],
+            ['Figure 11', 'Client-Side Form Validation Alert & Error Prevention', '18'],
+            ['Figure 12', 'Document Upload & Multi-Format Verification', '19'],
+            ['Figure 13', 'Application Submission Confirmation & Unique Reference Generation', '19'],
+            ['Figure 14', 'Live Citizen Tracking Timeline with Multi-Stage Progression', '20'],
+            ['Figure 15', 'Department Officer Scrutiny Console & Pending Application Queue', '20'],
+            ['Figure 16', 'Officer Application Scrutiny Dossier with Inline Document Viewer', '21'],
+            ['Figure 17', 'Officer Status Transition Pipeline & Remarks Endorsement', '21'],
+            ['Figure 18', 'State Administrator Governance Dashboard & Interoperability KPIs', '22'],
+            ['Figure 19', 'State Department Management Console & Endpoint Configuration', '22'],
+            ['Figure 20', 'Service Schema Configuration & Dynamic Field Definition', '23'],
+            ['Figure 21', 'REST API Interoperability Gateway Logs & Modal Payload Inspector', '23'],
+            ['Figure 22', 'Postman Test Suite: GET /api/departments (Status 200 OK)', '24'],
+            ['Figure 23', 'Postman Test Suite: POST /api/auth/login (JWT Token Generation)', '24'],
+            ['Figure 24', 'Postman Test Suite: PATCH /api/applications/:id/status', '25'],
+            ['Figure 25', 'Postman Test Suite: DELETE /api/departments/:id (Integrity Check)', '25'],
+            ['Figure 26', 'MongoDB Shell (mongosh) Collection & Query Ledger Inspection', '26'],
+            ['Figure 27', 'MahaConnect Final Working Multi-Portal Application Showcase', '26'],
           ]),
 
           // Page Break to List of Tables
@@ -642,16 +672,16 @@ async function buildDocx() {
           createChapterTitle('LIST OF TABLES'),
           createTable([
             ['Table No.', 'Table Title', 'Page No.'],
-            ['Table 1', 'Comparative Analysis of Existing Systems vs. MahaConnect', '6'],
-            ['Table 2', 'User Roles and Permission Scopes', '9'],
-            ['Table 3', 'Simulated Government Departments in MahaConnect', '10'],
-            ['Table 4', 'Application Status Lifecycle States', '10'],
-            ['Table 5', 'Hardware Requirements Specification', '12'],
-            ['Table 6', 'Software Requirements Specification', '13'],
-            ['Table 7', 'Database Collections & Schema Constraints', '20'],
-            ['Table 8', 'Core REST API Endpoints Specification', '24'],
-            ['Table 9', 'Role-Based Access Control (RBAC) Permission Matrix', '30'],
-            ['Table 10', 'Automated Postman Test Case Execution Matrix', '34'],
+            ['Table 1', 'Comparative Analysis of Existing Systems vs. MahaConnect', '3'],
+            ['Table 2', 'User Roles and Permission Scopes', '5'],
+            ['Table 3', 'Simulated Government Departments in MahaConnect', '6'],
+            ['Table 4', 'Application Status Lifecycle States', '6'],
+            ['Table 5', 'Hardware Requirements Specification', '7'],
+            ['Table 6', 'Software Requirements Specification', '7'],
+            ['Table 7', 'Database Collections & Schema Constraints', '11'],
+            ['Table 8', 'Core REST API Endpoints Specification', '12'],
+            ['Table 9', 'Role-Based Access Control (RBAC) Permission Matrix', '13'],
+            ['Table 10', 'Automated Postman Test Case Execution Matrix', '14'],
           ]),
 
           // Page Break to Chapter 1
@@ -1053,24 +1083,44 @@ async function buildDocx() {
 
           ...createFigure('01_landing_page.png', 'Figure 6: MahaConnect Public Landing Page & Citizen Gateway'),
           ...createFigure('02_login_page.png', 'Figure 7: Unified Authentication Portal with Seeded Demo Credentials'),
+          new Paragraph({ children: [new PageBreak()] }),
+
           ...createFigure('03_citizen_dashboard.png', 'Figure 8: Citizen Self-Service Dashboard with Metric Cards & Quick Navigation'),
           ...createFigure('04_government_services.png', 'Figure 9: Cross-Departmental Government Services Directory with Filtering'),
+          new Paragraph({ children: [new PageBreak()] }),
+
           ...createFigure('05_application_form.png', 'Figure 10: Dynamic Application Form Wizard: Step 1 (Personal Demographics)'),
           ...createFigure('06_form_validation_error.png', 'Figure 11: Client-Side Form Validation Alert & Error Prevention'),
+          new Paragraph({ children: [new PageBreak()] }),
+
           ...createFigure('07_document_upload_review.png', 'Figure 12: Document Upload & Multi-Format Verification'),
           ...createFigure('08_successful_application_submission.png', 'Figure 13: Application Submission Confirmation & Unique Reference Generation'),
+          new Paragraph({ children: [new PageBreak()] }),
+
           ...createFigure('09_application_tracking_timeline.png', 'Figure 14: Live Citizen Tracking Timeline with Multi-Stage Progression'),
           ...createFigure('10_officer_dashboard.png', 'Figure 15: Department Officer Scrutiny Console & Pending Application Queue'),
+          new Paragraph({ children: [new PageBreak()] }),
+
           ...createFigure('11_officer_application_review.png', 'Figure 16: Officer Application Scrutiny Dossier with Inline Document Viewer'),
           ...createFigure('12_updated_application_status.png', 'Figure 17: Officer Status Transition Pipeline & Remarks Endorsement'),
+          new Paragraph({ children: [new PageBreak()] }),
+
           ...createFigure('13_admin_dashboard.png', 'Figure 18: State Administrator Governance Dashboard & Interoperability KPIs'),
           ...createFigure('14_department_management.png', 'Figure 19: State Department Management Console & Endpoint Configuration'),
+          new Paragraph({ children: [new PageBreak()] }),
+
           ...createFigure('15_service_management.png', 'Figure 20: Service Schema Configuration & Dynamic Field Definition'),
           ...createFigure('16_api_interoperability_logs.png', 'Figure 21: REST API Interoperability Gateway Logs & Modal Payload Inspector'),
+          new Paragraph({ children: [new PageBreak()] }),
+
           ...createFigure('17_postman_get_request.png', 'Figure 22: Postman Test Suite: GET /api/departments (Status 200 OK)'),
           ...createFigure('18_postman_post_request.png', 'Figure 23: Postman Test Suite: POST /api/auth/login (JWT Token Generation)'),
+          new Paragraph({ children: [new PageBreak()] }),
+
           ...createFigure('19_postman_put_patch_request.png', 'Figure 24: Postman Test Suite: PATCH /api/applications/:id/status'),
           ...createFigure('20_postman_delete_request.png', 'Figure 25: Postman Test Suite: DELETE /api/departments/:id (Integrity Check)'),
+          new Paragraph({ children: [new PageBreak()] }),
+
           ...createFigure('21_mongodb_records.png', 'Figure 26: MongoDB Shell (mongosh) Collection & Query Ledger Inspection'),
           ...createFigure('22_final_working_application.png', 'Figure 27: MahaConnect Final Working Multi-Portal Application Showcase'),
 
@@ -1086,7 +1136,7 @@ async function buildDocx() {
             ['ROLL NOs.', '202402104\n202402111'],
             ['CLASS', 'TY BSc IT'],
             ['SEMESTER', 'V'],
-            ['PROJECT GUIDE', '[PROJECT GUIDE NAME]'],
+            ['PROJECT GUIDE', 'Mr. Pratharv Surve'],
             ['ACADEMIC YEAR', '2026-2027'],
             ['COLLEGE', "ZSCT's Thakur Shyamnarayan Degree College"],
             ['DEPLOYMENT URL', 'https://mahaconnect-rose.vercel.app'],

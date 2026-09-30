@@ -61,7 +61,7 @@ function buildCollegeReportHtml() {
   <style>
     @page {
       size: A4;
-      margin: 22mm 18mm 22mm 18mm;
+      margin: 16mm 14mm 16mm 14mm;
     }
     * {
       box-sizing: border-box;
@@ -70,71 +70,78 @@ function buildCollegeReportHtml() {
     }
     body {
       font-family: 'Times New Roman', Times, serif;
-      font-size: 11pt;
-      line-height: 1.5;
+      font-size: 10.5pt;
+      line-height: 1.45;
       color: #111827;
       background: #ffffff;
     }
     .page-break {
       page-break-before: always;
+      break-before: page;
     }
     .chapter-title {
       font-family: 'Arial', sans-serif;
-      font-size: 16pt;
+      font-size: 15pt;
       font-weight: bold;
       color: #000000;
       text-align: center;
       text-transform: uppercase;
-      margin-top: 10pt;
-      margin-bottom: 18pt;
+      margin-top: 6pt;
+      margin-bottom: 14pt;
       letter-spacing: 0.5pt;
       border-bottom: 1.5pt solid #000000;
-      padding-bottom: 6pt;
+      padding-bottom: 5pt;
+      page-break-after: avoid;
+      break-after: avoid;
     }
     h2 {
       font-family: 'Arial', sans-serif;
-      font-size: 12.5pt;
+      font-size: 12pt;
       font-weight: bold;
       color: #0f2b48;
-      margin-top: 14pt;
-      margin-bottom: 6pt;
+      margin-top: 12pt;
+      margin-bottom: 5pt;
+      page-break-after: avoid;
+      break-after: avoid;
     }
     h3 {
       font-family: 'Arial', sans-serif;
-      font-size: 11pt;
+      font-size: 10.5pt;
       font-weight: bold;
       color: #1e293b;
-      margin-top: 10pt;
-      margin-bottom: 4pt;
+      margin-top: 8pt;
+      margin-bottom: 3pt;
+      page-break-after: avoid;
+      break-after: avoid;
     }
     p {
-      margin-bottom: 8pt;
+      margin-bottom: 6pt;
       text-align: justify;
       text-justify: inter-word;
-      text-indent: 24pt;
+      text-indent: 20pt;
     }
     p.no-indent {
       text-indent: 0;
     }
     ul, ol {
-      margin-left: 30pt;
-      margin-bottom: 8pt;
+      margin-left: 24pt;
+      margin-bottom: 6pt;
     }
     li {
-      margin-bottom: 3pt;
+      margin-bottom: 2pt;
       text-align: justify;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 10pt 0 14pt 0;
-      font-size: 9.5pt;
-      page-break-inside: avoid;
+      margin: 8pt 0 10pt 0;
+      font-size: 8.5pt;
     }
     th, td {
       border: 1pt solid #475569;
-      padding: 5.5pt 8pt;
+      padding: 3.5pt 5.5pt;
       text-align: left;
+      line-height: 1.35;
     }
     th {
       background-color: #f1f5f9;
@@ -142,71 +149,90 @@ function buildCollegeReportHtml() {
       font-weight: bold;
       font-family: 'Arial', sans-serif;
     }
+    tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
     tr:nth-child(even) {
       background-color: #f8fafc;
     }
     .table-caption {
       font-family: 'Arial', sans-serif;
-      font-size: 9.5pt;
+      font-size: 9pt;
       font-weight: bold;
       color: #000000;
-      margin-bottom: 4pt;
+      margin-bottom: 3pt;
       text-align: left;
+      page-break-after: avoid;
+      break-after: avoid;
     }
     .figure-box {
-      margin: 16pt 0;
+      margin: 6pt auto 8pt auto;
       text-align: center;
       page-break-inside: avoid;
+      break-inside: avoid;
+      max-width: 92%;
     }
     .figure-img {
-      max-width: 92%;
+      max-width: 80%;
+      max-height: 205pt;
+      width: auto;
       height: auto;
-      border: 1pt solid #64748b;
-      border-radius: 2pt;
+      border: 1pt solid #475569;
+      border-radius: 3pt;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 1pt 3pt rgba(0,0,0,0.12);
+      object-fit: contain;
     }
     .figure-caption {
       font-family: 'Arial', sans-serif;
-      font-size: 9.5pt;
+      font-size: 8.5pt;
       font-weight: bold;
       color: #000000;
-      margin-top: 5pt;
+      margin-top: 3pt;
       text-align: center;
     }
     .figure-desc {
-      font-size: 8.5pt;
+      font-size: 7.5pt;
       color: #475569;
-      margin-top: 2pt;
+      margin-top: 1pt;
       font-style: italic;
       text-align: center;
-      padding: 0 20pt;
+      padding: 0 15pt;
     }
     .code-block {
       background: #f8fafc;
       color: #0f172a;
       font-family: 'Courier New', Courier, monospace;
-      font-size: 8.5pt;
-      padding: 8pt 10pt;
+      font-size: 8pt;
+      padding: 6pt 8pt;
       border: 1pt solid #cbd5e1;
       border-left: 3pt solid #0f2b48;
       border-radius: 2pt;
-      margin: 8pt 0;
+      margin: 6pt 0;
       overflow-x: auto;
       white-space: pre-wrap;
-      line-height: 1.4;
+      line-height: 1.35;
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
     .cover-page {
+      box-sizing: border-box;
       height: 100%;
+      min-height: 98%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       text-align: center;
-      padding: 10pt 10pt 10pt 10pt;
+      padding: 16pt 14pt;
       border: 1.5pt solid #000000;
     }
     .certificate-border {
       border: 1.5pt solid #000000;
-      padding: 24pt;
+      padding: 20pt;
       height: 100%;
+      box-sizing: border-box;
     }
   </style>
 </head>
@@ -215,76 +241,88 @@ function buildCollegeReportHtml() {
   <!-- ==================== 1. COVER / TITLE PAGE ==================== -->
   <div class="cover-page">
     <div>
-      <div style="font-size: 11pt; font-weight: bold; color: #475569; text-transform: uppercase; letter-spacing: 0.8pt;">
+      <div style="font-size: 10.5pt; font-weight: bold; color: #475569; text-transform: uppercase; letter-spacing: 0.8pt;">
         A CAPSTONE PROJECT REPORT ON
       </div>
 
-      <div style="font-size: 20pt; font-weight: 900; color: #000000; margin-top: 14pt; line-height: 1.25; font-family: Arial, sans-serif;">
+      <div style="font-size: 19pt; font-weight: 900; color: #000000; margin-top: 10pt; line-height: 1.22; font-family: Arial, sans-serif;">
         MAHACONNECT:<br>GOVERNMENT PLATFORM INTEROPERABILITY SYSTEM
       </div>
 
-      <div style="font-size: 12pt; font-weight: bold; color: #1e3a8a; margin-top: 8pt; font-family: Arial, sans-serif;">
+      <div style="font-size: 11.5pt; font-weight: bold; color: #1e3a8a; margin-top: 6pt; font-family: Arial, sans-serif;">
         A Unified Multi-Departmental e-Governance Integration Architecture
       </div>
 
-      <div style="font-size: 10pt; color: #334155; margin-top: 18pt; font-style: italic;">
+      <div style="font-size: 9.5pt; color: #334155; margin-top: 14pt; font-style: italic;">
         Submitted in partial fulfillment of the requirements for the award of the Degree of
       </div>
 
-      <div style="font-size: 13pt; font-weight: bold; color: #000000; margin-top: 4pt; font-family: Arial, sans-serif;">
+      <div style="font-size: 12.5pt; font-weight: bold; color: #000000; margin-top: 3pt; font-family: Arial, sans-serif;">
         BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY (BSc IT)
       </div>
 
-      <div style="font-size: 10.5pt; color: #475569; font-weight: bold; margin-top: 2pt;">
+      <div style="font-size: 10pt; color: #475569; font-weight: bold; margin-top: 2pt;">
         (Full Stack Development & Management – FSDM)
       </div>
     </div>
 
-    <div style="margin: 18pt 0;">
-      <div style="font-size: 11pt; font-weight: bold; color: #000000; text-transform: uppercase;">
+    <div style="margin: 10pt 0;">
+      <div style="font-size: 10.5pt; font-weight: bold; color: #000000; text-transform: uppercase;">
         SUBMITTED BY:
       </div>
 
-      <div style="margin-top: 10pt;">
-        <div style="font-size: 15pt; font-weight: bold; color: #000000; font-family: Arial, sans-serif;">
+      <div style="margin-top: 6pt;">
+        <div style="font-size: 14pt; font-weight: bold; color: #000000; font-family: Arial, sans-serif;">
           PAWAN MISHRA
         </div>
-        <div style="font-size: 11pt; font-family: 'Courier New', monospace; font-weight: bold;">
+        <div style="font-size: 10.5pt; font-family: 'Courier New', monospace; font-weight: bold;">
           Roll No: 202402104
         </div>
       </div>
 
-      <div style="margin-top: 8pt;">
-        <div style="font-size: 15pt; font-weight: bold; color: #000000; font-family: Arial, sans-serif;">
+      <div style="margin-top: 6pt;">
+        <div style="font-size: 14pt; font-weight: bold; color: #000000; font-family: Arial, sans-serif;">
           SAMARTH NIVADUNGE
         </div>
-        <div style="font-size: 11pt; font-family: 'Courier New', monospace; font-weight: bold;">
+        <div style="font-size: 10.5pt; font-family: 'Courier New', monospace; font-weight: bold;">
           Roll No: 202402111
         </div>
       </div>
 
-      <div style="font-size: 11.5pt; font-weight: bold; color: #0f2b48; margin-top: 10pt;">
+      <div style="font-size: 11pt; font-weight: bold; color: #0f2b48; margin-top: 8pt;">
         Class: TY BSc IT • Semester V
+      </div>
+
+      <div style="margin-top: 10pt; border-top: 1pt dashed #cbd5e1; padding-top: 8pt;">
+        <div style="font-size: 10pt; font-weight: bold; color: #475569; text-transform: uppercase;">
+          UNDER THE GUIDANCE OF:
+        </div>
+        <div style="font-size: 13pt; font-weight: bold; color: #000000; font-family: Arial, sans-serif; margin-top: 2pt;">
+          MR. PRATHARV SURVE
+        </div>
+        <div style="font-size: 9pt; color: #475569;">
+          Department of Information Technology
+        </div>
       </div>
     </div>
 
     <div>
-      <div style="font-size: 11pt; font-weight: bold; color: #000000;">
+      <div style="font-size: 10.5pt; font-weight: bold; color: #000000;">
         DEPARTMENT OF INFORMATION TECHNOLOGY
       </div>
-      <div style="font-size: 12pt; font-weight: bold; color: #000000; margin-top: 2pt; font-family: Arial, sans-serif;">
+      <div style="font-size: 11.5pt; font-weight: bold; color: #000000; margin-top: 2pt; font-family: Arial, sans-serif;">
         ZSCT'S THAKUR SHYAMNARAYAN DEGREE COLLEGE
       </div>
-      <div style="font-size: 9.5pt; color: #334155; margin-top: 2pt;">
+      <div style="font-size: 9pt; color: #334155; margin-top: 1pt;">
         (Affiliated to University of Mumbai)<br>
         MUMBAI – MAHARASHTRA – 400101
       </div>
 
-      <div style="font-size: 10.5pt; font-weight: bold; color: #000000; margin-top: 8pt;">
+      <div style="font-size: 10pt; font-weight: bold; color: #000000; margin-top: 6pt;">
         Academic Year: 2026 – 2027
       </div>
 
-      <div style="font-size: 9pt; color: #1e3a8a; margin-top: 8pt; font-family: monospace;">
+      <div style="font-size: 8.5pt; color: #1e3a8a; margin-top: 6pt; font-family: monospace;">
         Production Deployment URL: https://mahaconnect-rose.vercel.app
       </div>
     </div>
@@ -293,43 +331,43 @@ function buildCollegeReportHtml() {
   <!-- ==================== 2. CERTIFICATE ==================== -->
   <div class="page-break"></div>
   <div class="certificate-border">
-    <div style="text-align: center; margin-bottom: 18pt;">
-      <div style="font-size: 14pt; font-weight: bold; color: #000000; font-family: Arial, sans-serif;">
+    <div style="text-align: center; margin-bottom: 12pt;">
+      <div style="font-size: 13.5pt; font-weight: bold; color: #000000; font-family: Arial, sans-serif;">
         ZSCT'S THAKUR SHYAMNARAYAN DEGREE COLLEGE
       </div>
-      <div style="font-size: 9.5pt; color: #334155;">
+      <div style="font-size: 9pt; color: #334155;">
         (Affiliated to University of Mumbai)<br>
         MUMBAI – MAHARASHTRA – 400101
       </div>
-      <div style="font-size: 11pt; font-weight: bold; color: #0f2b48; margin-top: 6pt;">
+      <div style="font-size: 10.5pt; font-weight: bold; color: #0f2b48; margin-top: 4pt;">
         DEPARTMENT OF INFORMATION TECHNOLOGY
       </div>
 
-      <div style="font-size: 18pt; font-weight: bold; color: #000000; margin-top: 16pt; font-family: Arial, sans-serif; letter-spacing: 1pt;">
+      <div style="font-size: 16pt; font-weight: bold; color: #000000; margin-top: 12pt; font-family: Arial, sans-serif; letter-spacing: 1pt;">
         CERTIFICATE
       </div>
     </div>
 
-    <p style="line-height: 1.8; text-indent: 0; font-size: 11pt; margin-top: 16pt;">
+    <p style="line-height: 1.7; text-indent: 0; font-size: 10.5pt; margin-top: 12pt;">
       This is to certify that the project entitled <strong>"MahaConnect: Government Platform Interoperability System"</strong> is a bonafide work carried out by <strong>Pawan Mishra</strong> (Roll No: <strong>202402104</strong>) and <strong>Samarth Nivadunge</strong> (Roll No: <strong>202402111</strong>) in partial fulfillment of the requirements for the degree of <strong>Bachelor of Science in Information Technology (TY BSc IT)</strong>, during the academic year <strong>2026–2027</strong>.
     </p>
 
-    <p style="line-height: 1.8; text-indent: 0; font-size: 11pt; margin-top: 14pt;">
-      The candidates have completed the project work under the guidance of the Department of Information Technology and have demonstrated their understanding of full-stack web development, MERN technology integration, RESTful API communication, database management, authentication, authorization, and government-platform interoperability modeling.
+    <p style="line-height: 1.7; text-indent: 0; font-size: 10.5pt; margin-top: 10pt;">
+      The candidates have completed the project work under the guidance of <strong>Mr. Pratharv Surve</strong> (Project Guide) and the Department of Information Technology, demonstrating a comprehensive understanding of full-stack MERN web engineering, RESTful API interoperability, role-based access control, and asynchronous citizen service automation.
     </p>
 
-    <div style="margin-top: 90pt; display: flex; justify-content: space-between; text-align: center;">
-      <div style="width: 28%;">
-        <div style="border-top: 1pt solid #000; padding-top: 4pt; font-weight: bold; font-size: 10pt;">PROJECT GUIDE</div>
-        <div style="font-size: 8.5pt; color: #64748b;">[PROJECT GUIDE NAME]</div>
+    <div style="margin-top: 75pt; display: flex; justify-content: space-between; text-align: center;">
+      <div style="width: 30%;">
+        <div style="border-top: 1pt solid #000; padding-top: 4pt; font-weight: bold; font-size: 9.5pt;">MR. PRATHARV SURVE</div>
+        <div style="font-size: 8pt; color: #334155; margin-top: 2pt;">Project Guide<br>Dept. of Information Technology</div>
       </div>
-      <div style="width: 28%;">
-        <div style="border-top: 1pt solid #000; padding-top: 4pt; font-weight: bold; font-size: 10pt;">HEAD OF DEPARTMENT</div>
-        <div style="font-size: 8.5pt; color: #64748b;">Dept. of Information Technology</div>
+      <div style="width: 30%;">
+        <div style="border-top: 1pt solid #000; padding-top: 4pt; font-weight: bold; font-size: 9.5pt;">HEAD OF DEPARTMENT</div>
+        <div style="font-size: 8pt; color: #334155; margin-top: 2pt;">Dept. of Information Technology</div>
       </div>
-      <div style="width: 28%;">
-        <div style="border-top: 1pt solid #000; padding-top: 4pt; font-weight: bold; font-size: 10pt;">PRINCIPAL</div>
-        <div style="font-size: 8.5pt; color: #64748b;">Thakur Shyamnarayan Degree College</div>
+      <div style="width: 30%;">
+        <div style="border-top: 1pt solid #000; padding-top: 4pt; font-weight: bold; font-size: 9.5pt;">PRINCIPAL</div>
+        <div style="font-size: 8pt; color: #334155; margin-top: 2pt;">Thakur Shyamnarayan Degree College</div>
       </div>
     </div>
   </div>
@@ -338,47 +376,46 @@ function buildCollegeReportHtml() {
   <div class="page-break"></div>
   <div class="chapter-title">DECLARATION</div>
 
-  <p class="no-indent" style="line-height: 1.8;">
+  <p class="no-indent" style="line-height: 1.75;">
     We, <strong>Pawan Mishra</strong> and <strong>Samarth Nivadunge</strong>, hereby declare that the capstone project report entitled <strong>"MahaConnect – Government Platform Interoperability System"</strong>, submitted to the Department of Information Technology in partial fulfillment of the requirements for the award of the Degree of <strong>Bachelor of Science in Information Technology (TY BSc IT)</strong>, is an authentic record of original work carried out by us under institutional academic guidance.
   </p>
 
-  <p class="no-indent" style="line-height: 1.8; margin-top: 14pt;">
+  <p class="no-indent" style="line-height: 1.75; margin-top: 12pt;">
     We further declare that this report has not been submitted either concurrently or previously to any other university, college, or examination board for the award of any degree or diploma. All external libraries, architectural design patterns, research papers, and technical standards cited throughout this document have been duly acknowledged in the references section.
   </p>
 
-  <div style="margin-top: 50pt; text-align: right; line-height: 1.6;">
+  <div style="margin-top: 45pt; text-align: right; line-height: 1.5;">
     <div style="font-weight: bold; font-size: 11pt;">PAWAN MISHRA</div>
-    <div style="font-family: monospace; font-size: 10pt;">Roll No: 202402104</div>
-    <div style="font-weight: bold; font-size: 11pt; margin-top: 12pt;">SAMARTH NIVADUNGE</div>
-    <div style="font-family: monospace; font-size: 10pt;">Roll No: 202402111</div>
-    <div style="margin-top: 10pt; font-weight: bold; color: #0f2b48;">TY BSc IT • Semester V</div>
-    <div style="margin-top: 4pt; color: #475569;">Date: October 2026</div>
+    <div style="font-family: monospace; font-size: 9.5pt;">Roll No: 202402104</div>
+    <div style="font-weight: bold; font-size: 11pt; margin-top: 10pt;">SAMARTH NIVADUNGE</div>
+    <div style="font-family: monospace; font-size: 9.5pt;">Roll No: 202402111</div>
+    <div style="margin-top: 8pt; font-weight: bold; color: #0f2b48;">TY BSc IT • Semester V</div>
+    <div style="margin-top: 3pt; color: #475569;">Date: October 2026</div>
   </div>
 
   <!-- ==================== 4. ACKNOWLEDGEMENT ==================== -->
-  <div style="margin-top: 40pt;">
-    <div class="chapter-title">ACKNOWLEDGEMENT</div>
+  <div class="page-break"></div>
+  <div class="chapter-title">ACKNOWLEDGEMENT</div>
 
-    <p class="no-indent" style="line-height: 1.75;">
-      We express our sincere gratitude to the University of Mumbai and ZSCT's Thakur Shyamnarayan Degree College, Department of Information Technology, for providing us with the opportunity to undertake this capstone project.
-    </p>
+  <p class="no-indent" style="line-height: 1.7;">
+    We express our sincere gratitude to the University of Mumbai and ZSCT's Thakur Shyamnarayan Degree College, Department of Information Technology, for providing us with the opportunity to undertake this capstone project.
+  </p>
 
-    <p class="no-indent" style="line-height: 1.75; margin-top: 10pt;">
-      We are deeply thankful to our Principal, Head of the Department, faculty members, and project guide for their continuous guidance, encouragement, valuable suggestions, and constructive feedback throughout the development of MahaConnect.
-    </p>
+  <p class="no-indent" style="line-height: 1.7; margin-top: 8pt;">
+    We are deeply thankful to our Principal, Head of the Department, and faculty members for their continuous institutional encouragement, valuable suggestions, and constructive feedback throughout the development lifecycle of MahaConnect.
+  </p>
 
-    <p class="no-indent" style="line-height: 1.75; margin-top: 10pt;">
-      We would like to express our special appreciation to our project guide for providing technical guidance in MERN stack development, RESTful API integration, database management, authentication, authorization, and interoperability concepts.
-    </p>
+  <p class="no-indent" style="line-height: 1.7; margin-top: 8pt;">
+    We express our sincere and heartfelt appreciation to our project guide, <strong>Mr. Pratharv Surve</strong>, for his invaluable mentorship, rigorous technical supervision, architectural review, and continuous encouragement across all phases of MERN stack integration, RESTful API design, database modeling, and government platform interoperability simulation.
+  </p>
 
-    <p class="no-indent" style="line-height: 1.75; margin-top: 10pt;">
-      We are also grateful to our classmates, friends, family members, and everyone who directly or indirectly supported us during the planning, development, testing, documentation, and completion of this project.
-    </p>
+  <p class="no-indent" style="line-height: 1.7; margin-top: 8pt;">
+    We are also grateful to our classmates, friends, family members, and everyone who directly or indirectly supported us during the planning, development, testing, documentation, and completion of this project.
+  </p>
 
-    <p class="no-indent" style="line-height: 1.75; margin-top: 10pt;">
-      Finally, we express our sincere thanks to everyone who contributed to the successful completion of our capstone project, "MahaConnect: Government Platform Interoperability System."
-    </p>
-  </div>
+  <p class="no-indent" style="line-height: 1.7; margin-top: 8pt;">
+    Finally, we express our sincere thanks to everyone who contributed to the successful completion of our capstone project, "MahaConnect: Government Platform Interoperability System."
+  </p>
 
   <!-- ==================== 5. ABSTRACT ==================== -->
   <div class="page-break"></div>
@@ -416,74 +453,73 @@ function buildCollegeReportHtml() {
     </tr>
     <tr><td style="text-align: center;">1</td><td>Title Page / Cover Page</td><td style="text-align: center;">i</td></tr>
     <tr><td style="text-align: center;">2</td><td>Certificate of Approval</td><td style="text-align: center;">ii</td></tr>
-    <tr><td style="text-align: center;">3</td><td>Declaration & Acknowledgement</td><td style="text-align: center;">iii</td></tr>
-    <tr><td style="text-align: center;">4</td><td>Abstract</td><td style="text-align: center;">iv</td></tr>
-    <tr><td style="text-align: center;">5</td><td>List of Figures</td><td style="text-align: center;">vi</td></tr>
-    <tr><td style="text-align: center;">6</td><td>List of Tables</td><td style="text-align: center;">vii</td></tr>
+    <tr><td style="text-align: center;">3</td><td>Declaration</td><td style="text-align: center;">iii</td></tr>
+    <tr><td style="text-align: center;">4</td><td>Acknowledgement</td><td style="text-align: center;">iv</td></tr>
+    <tr><td style="text-align: center;">5</td><td>Abstract</td><td style="text-align: center;">v</td></tr>
+    <tr><td style="text-align: center;">6</td><td>List of Figures</td><td style="text-align: center;">viii</td></tr>
+    <tr><td style="text-align: center;">7</td><td>List of Tables</td><td style="text-align: center;">ix</td></tr>
     <tr><td style="text-align: center;"><strong>1.0</strong></td><td><strong>CHAPTER 1 – INTRODUCTION</strong></td><td style="text-align: center;"><strong>1</strong></td></tr>
     <tr><td style="text-align: center;">1.1</td><td>Project Overview</td><td style="text-align: center;">1</td></tr>
-    <tr><td style="text-align: center;">1.2</td><td>Problem Statement</td><td style="text-align: center;">2</td></tr>
+    <tr><td style="text-align: center;">1.2</td><td>Problem Statement</td><td style="text-align: center;">1</td></tr>
     <tr><td style="text-align: center;">1.3</td><td>Project Objectives</td><td style="text-align: center;">2</td></tr>
-    <tr><td style="text-align: center;">1.4</td><td>Scope and Applicability</td><td style="text-align: center;">3</td></tr>
-    <tr><td style="text-align: center;">1.5</td><td>Significance of the Project</td><td style="text-align: center;">3</td></tr>
-    <tr><td style="text-align: center;"><strong>2.0</strong></td><td><strong>CHAPTER 2 – LITERATURE REVIEW & EXISTING SYSTEMS</strong></td><td style="text-align: center;"><strong>4</strong></td></tr>
-    <tr><td style="text-align: center;">2.1</td><td>Traditional Siloed Governance Models</td><td style="text-align: center;">4</td></tr>
-    <tr><td style="text-align: center;">2.2</td><td>Existing e-Governance Platforms</td><td style="text-align: center;">5</td></tr>
-    <tr><td style="text-align: center;">2.3</td><td>Interoperability in Government Systems</td><td style="text-align: center;">5</td></tr>
-    <tr><td style="text-align: center;">2.4</td><td>Limitations of Existing Approaches</td><td style="text-align: center;">6</td></tr>
-    <tr><td style="text-align: center;">2.5</td><td>Proposed MahaConnect Approach</td><td style="text-align: center;">6</td></tr>
-    <tr><td style="text-align: center;"><strong>3.0</strong></td><td><strong>CHAPTER 3 – SYSTEM ARCHITECTURE & INTEROPERABILITY MODEL</strong></td><td style="text-align: center;"><strong>7</strong></td></tr>
-    <tr><td style="text-align: center;">3.1</td><td>High-Level Architectural Paradigm</td><td style="text-align: center;">7</td></tr>
-    <tr><td style="text-align: center;">3.2</td><td>Gateway Interoperability Sequence Flow</td><td style="text-align: center;">8</td></tr>
-    <tr><td style="text-align: center;">3.3</td><td>MERN Architecture & Layer Separation</td><td style="text-align: center;">9</td></tr>
-    <tr><td style="text-align: center;">3.4</td><td>Departmental Interoperability Model</td><td style="text-align: center;">10</td></tr>
-    <tr><td style="text-align: center;">3.5</td><td>Application Status Lifecycle</td><td style="text-align: center;">10</td></tr>
-    <tr><td style="text-align: center;"><strong>4.0</strong></td><td><strong>CHAPTER 4 – SYSTEM REQUIREMENTS & TECHNOLOGIES USED</strong></td><td style="text-align: center;"><strong>11</strong></td></tr>
-    <tr><td style="text-align: center;">4.1</td><td>Functional Requirements</td><td style="text-align: center;">11</td></tr>
-    <tr><td style="text-align: center;">4.2</td><td>Non-Functional Requirements</td><td style="text-align: center;">12</td></tr>
-    <tr><td style="text-align: center;">4.3</td><td>Hardware Requirements</td><td style="text-align: center;">12</td></tr>
-    <tr><td style="text-align: center;">4.4</td><td>Software Requirements</td><td style="text-align: center;">13</td></tr>
-    <tr><td style="text-align: center;">4.5</td><td>Technology Stack Details</td><td style="text-align: center;">13</td></tr>
-    <tr><td style="text-align: center;"><strong>5.0</strong></td><td><strong>CHAPTER 5 – SYSTEM ANALYSIS & FEASIBILITY STUDY</strong></td><td style="text-align: center;"><strong>14</strong></td></tr>
-    <tr><td style="text-align: center;">5.1</td><td>Technical Feasibility</td><td style="text-align: center;">14</td></tr>
-    <tr><td style="text-align: center;">5.2</td><td>Operational Feasibility</td><td style="text-align: center;">15</td></tr>
-    <tr><td style="text-align: center;">5.3</td><td>Economic Feasibility</td><td style="text-align: center;">15</td></tr>
-    <tr><td style="text-align: center;">5.4</td><td>Security Feasibility</td><td style="text-align: center;">16</td></tr>
-    <tr><td style="text-align: center;"><strong>6.0</strong></td><td><strong>CHAPTER 6 – SYSTEM DESIGN, DFD & DATABASE MODELING</strong></td><td style="text-align: center;"><strong>17</strong></td></tr>
-    <tr><td style="text-align: center;">6.1</td><td>Data Flow Diagrams (DFD) Overview</td><td style="text-align: center;">17</td></tr>
-    <tr><td style="text-align: center;">6.2</td><td>DFD Level 0 – Context Diagram</td><td style="text-align: center;">17</td></tr>
-    <tr><td style="text-align: center;">6.3</td><td>DFD Level 1 – Functional Decomposition</td><td style="text-align: center;">18</td></tr>
-    <tr><td style="text-align: center;">6.4</td><td>Entity Relationship / Database Model</td><td style="text-align: center;">19</td></tr>
-    <tr><td style="text-align: center;">6.5</td><td>Database Collections Schema</td><td style="text-align: center;">20</td></tr>
-    <tr><td style="text-align: center;">6.6</td><td>Data Dictionary</td><td style="text-align: center;">21</td></tr>
-    <tr><td style="text-align: center;"><strong>7.0</strong></td><td><strong>CHAPTER 7 – FULL-STACK IMPLEMENTATION DETAILS</strong></td><td style="text-align: center;"><strong>22</strong></td></tr>
-    <tr><td style="text-align: center;">7.1</td><td>Frontend Architecture & Component Tree</td><td style="text-align: center;">22</td></tr>
-    <tr><td style="text-align: center;">7.2</td><td>Backend Architecture & Routing Pipeline</td><td style="text-align: center;">23</td></tr>
-    <tr><td style="text-align: center;">7.3</td><td>REST API Implementation</td><td style="text-align: center;">24</td></tr>
-    <tr><td style="text-align: center;">7.4</td><td>CRUD Operations & Dynamic Database Records</td><td style="text-align: center;">25</td></tr>
-    <tr><td style="text-align: center;">7.5</td><td>Form Validation & Error Trapping</td><td style="text-align: center;">26</td></tr>
-    <tr><td style="text-align: center;">7.6</td><td>Complete Application Workflow</td><td style="text-align: center;">27</td></tr>
-    <tr><td style="text-align: center;"><strong>8.0</strong></td><td><strong>CHAPTER 8 – SECURITY, CRYPTOGRAPHY & ACCESS CONTROL</strong></td><td style="text-align: center;"><strong>28</strong></td></tr>
-    <tr><td style="text-align: center;">8.1</td><td>Password Hashing with bcrypt</td><td style="text-align: center;">28</td></tr>
-    <tr><td style="text-align: center;">8.2</td><td>JWT Authentication & Bearer Token Verification</td><td style="text-align: center;">29</td></tr>
-    <tr><td style="text-align: center;">8.3</td><td>Role-Based Access Control (RBAC)</td><td style="text-align: center;">29</td></tr>
-    <tr><td style="text-align: center;">8.4</td><td>Security Middleware: Helmet, CORS & Rate Limiting</td><td style="text-align: center;">30</td></tr>
-    <tr><td style="text-align: center;">8.5</td><td>Audit Logging & Telemetry Recording</td><td style="text-align: center;">31</td></tr>
-    <tr><td style="text-align: center;"><strong>9.0</strong></td><td><strong>CHAPTER 9 – TESTING & VALIDATION</strong></td><td style="text-align: center;"><strong>32</strong></td></tr>
-    <tr><td style="text-align: center;">9.1</td><td>Testing Strategy & Methodology</td><td style="text-align: center;">32</td></tr>
-    <tr><td style="text-align: center;">9.2</td><td>Functional & Frontend Validation Testing</td><td style="text-align: center;">33</td></tr>
-    <tr><td style="text-align: center;">9.3</td><td>API Testing using Postman Suite</td><td style="text-align: center;">33</td></tr>
-    <tr><td style="text-align: center;">9.4</td><td>Test Cases and Results Table</td><td style="text-align: center;">34</td></tr>
-    <tr><td style="text-align: center;">9.5</td><td>Production Deployment Verification</td><td style="text-align: center;">35</td></tr>
-    <tr><td style="text-align: center;"><strong>10.0</strong></td><td><strong>CHAPTER 10 – RESULTS, CONCLUSION & FUTURE SCOPE</strong></td><td style="text-align: center;"><strong>36</strong></td></tr>
-    <tr><td style="text-align: center;">10.1</td><td>Results</td><td style="text-align: center;">36</td></tr>
-    <tr><td style="text-align: center;">10.2</td><td>Conclusion</td><td style="text-align: center;">37</td></tr>
-    <tr><td style="text-align: center;">10.3</td><td>Learning Outcomes</td><td style="text-align: center;">37</td></tr>
-    <tr><td style="text-align: center;">10.4</td><td>Limitations</td><td style="text-align: center;">38</td></tr>
-    <tr><td style="text-align: center;">10.5</td><td>Future Scope</td><td style="text-align: center;">38</td></tr>
-    <tr><td style="text-align: center;"><strong>11.0</strong></td><td><strong>PROJECT SCREENSHOTS & IMPLEMENTATION PHOTOS</strong></td><td style="text-align: center;"><strong>39</strong></td></tr>
-    <tr><td style="text-align: center;"><strong>12.0</strong></td><td><strong>PROJECT DETAILS PAGE</strong></td><td style="text-align: center;"><strong>55</strong></td></tr>
-    <tr><td style="text-align: center;"><strong>13.0</strong></td><td><strong>REFERENCES / BIBLIOGRAPHY</strong></td><td style="text-align: center;"><strong>56</strong></td></tr>
+    <tr><td style="text-align: center;">1.4</td><td>Scope and Applicability</td><td style="text-align: center;">2</td></tr>
+    <tr><td style="text-align: center;">1.5</td><td>Significance of the Project</td><td style="text-align: center;">2</td></tr>
+    <tr><td style="text-align: center;"><strong>2.0</strong></td><td><strong>CHAPTER 2 – LITERATURE REVIEW & EXISTING SYSTEMS</strong></td><td style="text-align: center;"><strong>3</strong></td></tr>
+    <tr><td style="text-align: center;">2.1</td><td>Traditional Siloed Governance Models</td><td style="text-align: center;">3</td></tr>
+    <tr><td style="text-align: center;">2.2</td><td>Existing e-Governance Platforms</td><td style="text-align: center;">3</td></tr>
+    <tr><td style="text-align: center;">2.3</td><td>Interoperability in Government Systems</td><td style="text-align: center;">3</td></tr>
+    <tr><td style="text-align: center;">2.4</td><td>Limitations of Existing Approaches</td><td style="text-align: center;">3</td></tr>
+    <tr><td style="text-align: center;">2.5</td><td>Proposed MahaConnect Approach</td><td style="text-align: center;">3</td></tr>
+    <tr><td style="text-align: center;"><strong>3.0</strong></td><td><strong>CHAPTER 3 – SYSTEM ARCHITECTURE & INTEROPERABILITY MODEL</strong></td><td style="text-align: center;"><strong>4</strong></td></tr>
+    <tr><td style="text-align: center;">3.1</td><td>High-Level Architectural Paradigm</td><td style="text-align: center;">4</td></tr>
+    <tr><td style="text-align: center;">3.2</td><td>Gateway Interoperability Sequence Flow</td><td style="text-align: center;">5</td></tr>
+    <tr><td style="text-align: center;">3.3</td><td>MERN Architecture & Layer Separation</td><td style="text-align: center;">5</td></tr>
+    <tr><td style="text-align: center;">3.4</td><td>Departmental Interoperability Model</td><td style="text-align: center;">6</td></tr>
+    <tr><td style="text-align: center;">3.5</td><td>Application Status Lifecycle</td><td style="text-align: center;">6</td></tr>
+    <tr><td style="text-align: center;"><strong>4.0</strong></td><td><strong>CHAPTER 4 – SYSTEM REQUIREMENTS & TECHNOLOGIES USED</strong></td><td style="text-align: center;"><strong>7</strong></td></tr>
+    <tr><td style="text-align: center;">4.1</td><td>Functional Requirements</td><td style="text-align: center;">7</td></tr>
+    <tr><td style="text-align: center;">4.2</td><td>Non-Functional Requirements</td><td style="text-align: center;">7</td></tr>
+    <tr><td style="text-align: center;">4.3</td><td>Hardware Requirements</td><td style="text-align: center;">7</td></tr>
+    <tr><td style="text-align: center;">4.4</td><td>Software Requirements</td><td style="text-align: center;">7</td></tr>
+    <tr><td style="text-align: center;">4.5</td><td>Technology Stack Details</td><td style="text-align: center;">7</td></tr>
+    <tr><td style="text-align: center;"><strong>5.0</strong></td><td><strong>CHAPTER 5 – SYSTEM ANALYSIS & FEASIBILITY STUDY</strong></td><td style="text-align: center;"><strong>8</strong></td></tr>
+    <tr><td style="text-align: center;">5.1</td><td>Technical Feasibility</td><td style="text-align: center;">8</td></tr>
+    <tr><td style="text-align: center;">5.2</td><td>Operational Feasibility</td><td style="text-align: center;">8</td></tr>
+    <tr><td style="text-align: center;">5.3</td><td>Economic Feasibility</td><td style="text-align: center;">8</td></tr>
+    <tr><td style="text-align: center;">5.4</td><td>Security Feasibility</td><td style="text-align: center;">8</td></tr>
+    <tr><td style="text-align: center;"><strong>6.0</strong></td><td><strong>CHAPTER 6 – SYSTEM DESIGN, DFD & DATABASE MODELING</strong></td><td style="text-align: center;"><strong>9</strong></td></tr>
+    <tr><td style="text-align: center;">6.1</td><td>Data Flow Diagrams (DFD) Overview</td><td style="text-align: center;">9</td></tr>
+    <tr><td style="text-align: center;">6.2</td><td>DFD Level 0 – Context Diagram</td><td style="text-align: center;">9</td></tr>
+    <tr><td style="text-align: center;">6.3</td><td>DFD Level 1 – Functional Decomposition</td><td style="text-align: center;">10</td></tr>
+    <tr><td style="text-align: center;">6.4</td><td>Entity Relationship / Database Model</td><td style="text-align: center;">10</td></tr>
+    <tr><td style="text-align: center;">6.5</td><td>Database Collections Schema</td><td style="text-align: center;">11</td></tr>
+    <tr><td style="text-align: center;">6.6</td><td>Data Dictionary</td><td style="text-align: center;">11</td></tr>
+    <tr><td style="text-align: center;"><strong>7.0</strong></td><td><strong>CHAPTER 7 – FULL-STACK IMPLEMENTATION DETAILS</strong></td><td style="text-align: center;"><strong>12</strong></td></tr>
+    <tr><td style="text-align: center;">7.1</td><td>Frontend Architecture & Component Tree</td><td style="text-align: center;">12</td></tr>
+    <tr><td style="text-align: center;">7.2</td><td>Backend Architecture & Routing Pipeline</td><td style="text-align: center;">12</td></tr>
+    <tr><td style="text-align: center;">7.3</td><td>REST API Implementation</td><td style="text-align: center;">12</td></tr>
+    <tr><td style="text-align: center;">7.4</td><td>Complete Application Workflow</td><td style="text-align: center;">12</td></tr>
+    <tr><td style="text-align: center;"><strong>8.0</strong></td><td><strong>CHAPTER 8 – SECURITY, CRYPTOGRAPHY & ACCESS CONTROL</strong></td><td style="text-align: center;"><strong>13</strong></td></tr>
+    <tr><td style="text-align: center;">8.1</td><td>Password Hashing with bcrypt</td><td style="text-align: center;">13</td></tr>
+    <tr><td style="text-align: center;">8.2</td><td>JWT Authentication & Bearer Token Verification</td><td style="text-align: center;">13</td></tr>
+    <tr><td style="text-align: center;">8.3</td><td>Role-Based Access Control (RBAC)</td><td style="text-align: center;">13</td></tr>
+    <tr><td style="text-align: center;">8.4</td><td>Security Middleware: Helmet, CORS & Rate Limiting</td><td style="text-align: center;">13</td></tr>
+    <tr><td style="text-align: center;">8.5</td><td>Audit Logging & Telemetry Recording</td><td style="text-align: center;">13</td></tr>
+    <tr><td style="text-align: center;"><strong>9.0</strong></td><td><strong>CHAPTER 9 – TESTING & VALIDATION</strong></td><td style="text-align: center;"><strong>14</strong></td></tr>
+    <tr><td style="text-align: center;">9.1</td><td>Testing Strategy & Methodology</td><td style="text-align: center;">14</td></tr>
+    <tr><td style="text-align: center;">9.2</td><td>Functional & Frontend Validation Testing</td><td style="text-align: center;">14</td></tr>
+    <tr><td style="text-align: center;">9.3</td><td>API Testing using Postman Suite</td><td style="text-align: center;">14</td></tr>
+    <tr><td style="text-align: center;">9.4</td><td>Test Cases and Results Table</td><td style="text-align: center;">14</td></tr>
+    <tr><td style="text-align: center;">9.5</td><td>Production Deployment Verification</td><td style="text-align: center;">14</td></tr>
+    <tr><td style="text-align: center;"><strong>10.0</strong></td><td><strong>CHAPTER 10 – RESULTS, CONCLUSION & FUTURE SCOPE</strong></td><td style="text-align: center;"><strong>15</strong></td></tr>
+    <tr><td style="text-align: center;">10.1</td><td>Results</td><td style="text-align: center;">15</td></tr>
+    <tr><td style="text-align: center;">10.2</td><td>Conclusion</td><td style="text-align: center;">15</td></tr>
+    <tr><td style="text-align: center;">10.3</td><td>Learning Outcomes</td><td style="text-align: center;">15</td></tr>
+    <tr><td style="text-align: center;">10.4</td><td>Limitations</td><td style="text-align: center;">15</td></tr>
+    <tr><td style="text-align: center;">10.5</td><td>Future Scope</td><td style="text-align: center;">15</td></tr>
+    <tr><td style="text-align: center;"><strong>11.0</strong></td><td><strong>PROJECT SCREENSHOTS & IMPLEMENTATION PHOTOS</strong></td><td style="text-align: center;"><strong>16</strong></td></tr>
+    <tr><td style="text-align: center;"><strong>12.0</strong></td><td><strong>PROJECT DETAILS PAGE</strong></td><td style="text-align: center;"><strong>27</strong></td></tr>
+    <tr><td style="text-align: center;"><strong>13.0</strong></td><td><strong>REFERENCES / BIBLIOGRAPHY</strong></td><td style="text-align: center;"><strong>28</strong></td></tr>
   </table>
 
   <!-- ==================== 7. LIST OF FIGURES ==================== -->
@@ -496,33 +532,33 @@ function buildCollegeReportHtml() {
       <th style="width: 67%;">Figure Title</th>
       <th style="width: 15%; text-align: center;">Page No.</th>
     </tr>
-    <tr><td style="text-align: center;">Figure 1</td><td>MahaConnect System Architecture Diagram</td><td style="text-align: center;">7</td></tr>
-    <tr><td style="text-align: center;">Figure 2</td><td>Gateway Interoperability Sequence Flow</td><td style="text-align: center;">8</td></tr>
-    <tr><td style="text-align: center;">Figure 3</td><td>Data Flow Diagram (DFD Level 0 – Context Diagram)</td><td style="text-align: center;">18</td></tr>
-    <tr><td style="text-align: center;">Figure 4</td><td>Data Flow Diagram (DFD Level 1 – Functional Decomposition)</td><td style="text-align: center;">19</td></tr>
-    <tr><td style="text-align: center;">Figure 5</td><td>Database Entity-Relationship (ER) Model</td><td style="text-align: center;">20</td></tr>
-    <tr><td style="text-align: center;">Figure 6</td><td>MahaConnect Public Landing Page & Citizen Gateway</td><td style="text-align: center;">39</td></tr>
-    <tr><td style="text-align: center;">Figure 7</td><td>Unified Authentication Portal with Seeded Demo Credentials</td><td style="text-align: center;">40</td></tr>
-    <tr><td style="text-align: center;">Figure 8</td><td>Citizen Self-Service Dashboard with Metric Cards & Quick Navigation</td><td style="text-align: center;">41</td></tr>
-    <tr><td style="text-align: center;">Figure 9</td><td>Cross-Departmental Government Services Directory with Filtering</td><td style="text-align: center;">42</td></tr>
-    <tr><td style="text-align: center;">Figure 10</td><td>Dynamic Application Form Wizard: Step 1 (Personal Demographics)</td><td style="text-align: center;">43</td></tr>
-    <tr><td style="text-align: center;">Figure 11</td><td>Client-Side Form Validation Alert & Error Prevention</td><td style="text-align: center;">44</td></tr>
-    <tr><td style="text-align: center;">Figure 12</td><td>Document Upload & Multi-Format Verification</td><td style="text-align: center;">45</td></tr>
-    <tr><td style="text-align: center;">Figure 13</td><td>Application Submission Confirmation & Unique Reference Generation</td><td style="text-align: center;">46</td></tr>
-    <tr><td style="text-align: center;">Figure 14</td><td>Live Citizen Tracking Timeline with Multi-Stage Progression</td><td style="text-align: center;">47</td></tr>
-    <tr><td style="text-align: center;">Figure 15</td><td>Department Officer Scrutiny Console & Pending Application Queue</td><td style="text-align: center;">48</td></tr>
-    <tr><td style="text-align: center;">Figure 16</td><td>Officer Application Scrutiny Dossier with Inline Document Viewer</td><td style="text-align: center;">49</td></tr>
-    <tr><td style="text-align: center;">Figure 17</td><td>Officer Status Transition Pipeline & Remarks Endorsement</td><td style="text-align: center;">50</td></tr>
-    <tr><td style="text-align: center;">Figure 18</td><td>State Administrator Governance Dashboard & Interoperability KPIs</td><td style="text-align: center;">51</td></tr>
-    <tr><td style="text-align: center;">Figure 19</td><td>State Department Management Console & Endpoint Configuration</td><td style="text-align: center;">52</td></tr>
-    <tr><td style="text-align: center;">Figure 20</td><td>Service Schema Configuration & Dynamic Field Definition</td><td style="text-align: center;">52</td></tr>
-    <tr><td style="text-align: center;">Figure 21</td><td>REST API Interoperability Gateway Logs & Modal Payload Inspector</td><td style="text-align: center;">53</td></tr>
-    <tr><td style="text-align: center;">Figure 22</td><td>Postman Test Suite: GET /api/departments (Status 200 OK)</td><td style="text-align: center;">53</td></tr>
-    <tr><td style="text-align: center;">Figure 23</td><td>Postman Test Suite: POST /api/auth/login (JWT Token Generation)</td><td style="text-align: center;">54</td></tr>
-    <tr><td style="text-align: center;">Figure 24</td><td>Postman Test Suite: PATCH /api/applications/:id/status</td><td style="text-align: center;">54</td></tr>
-    <tr><td style="text-align: center;">Figure 25</td><td>Postman Test Suite: DELETE /api/departments/:id (Integrity Check)</td><td style="text-align: center;">54</td></tr>
-    <tr><td style="text-align: center;">Figure 26</td><td>MongoDB Shell (mongosh) Collection & Query Ledger Inspection</td><td style="text-align: center;">55</td></tr>
-    <tr><td style="text-align: center;">Figure 27</td><td>MahaConnect Final Working Multi-Portal Application Showcase</td><td style="text-align: center;">55</td></tr>
+    <tr><td style="text-align: center;">Figure 1</td><td>MahaConnect System Architecture Diagram</td><td style="text-align: center;">4</td></tr>
+    <tr><td style="text-align: center;">Figure 2</td><td>Gateway Interoperability Sequence Flow</td><td style="text-align: center;">5</td></tr>
+    <tr><td style="text-align: center;">Figure 3</td><td>Data Flow Diagram (DFD Level 0 – Context Diagram)</td><td style="text-align: center;">9</td></tr>
+    <tr><td style="text-align: center;">Figure 4</td><td>Data Flow Diagram (DFD Level 1 – Functional Decomposition)</td><td style="text-align: center;">10</td></tr>
+    <tr><td style="text-align: center;">Figure 5</td><td>Database Entity-Relationship (ER) Model</td><td style="text-align: center;">10</td></tr>
+    <tr><td style="text-align: center;">Figure 6</td><td>MahaConnect Public Landing Page & Citizen Gateway</td><td style="text-align: center;">16</td></tr>
+    <tr><td style="text-align: center;">Figure 7</td><td>Unified Authentication Portal with Seeded Demo Credentials</td><td style="text-align: center;">16</td></tr>
+    <tr><td style="text-align: center;">Figure 8</td><td>Citizen Self-Service Dashboard with Metric Cards & Quick Navigation</td><td style="text-align: center;">17</td></tr>
+    <tr><td style="text-align: center;">Figure 9</td><td>Cross-Departmental Government Services Directory with Filtering</td><td style="text-align: center;">17</td></tr>
+    <tr><td style="text-align: center;">Figure 10</td><td>Dynamic Application Form Wizard: Step 1 (Personal Demographics)</td><td style="text-align: center;">18</td></tr>
+    <tr><td style="text-align: center;">Figure 11</td><td>Client-Side Form Validation Alert & Error Prevention</td><td style="text-align: center;">18</td></tr>
+    <tr><td style="text-align: center;">Figure 12</td><td>Document Upload & Multi-Format Verification</td><td style="text-align: center;">19</td></tr>
+    <tr><td style="text-align: center;">Figure 13</td><td>Application Submission Confirmation & Unique Reference Generation</td><td style="text-align: center;">19</td></tr>
+    <tr><td style="text-align: center;">Figure 14</td><td>Live Citizen Tracking Timeline with Multi-Stage Progression</td><td style="text-align: center;">20</td></tr>
+    <tr><td style="text-align: center;">Figure 15</td><td>Department Officer Scrutiny Console & Pending Application Queue</td><td style="text-align: center;">20</td></tr>
+    <tr><td style="text-align: center;">Figure 16</td><td>Officer Application Scrutiny Dossier with Inline Document Viewer</td><td style="text-align: center;">21</td></tr>
+    <tr><td style="text-align: center;">Figure 17</td><td>Officer Status Transition Pipeline & Remarks Endorsement</td><td style="text-align: center;">21</td></tr>
+    <tr><td style="text-align: center;">Figure 18</td><td>State Administrator Governance Dashboard & Interoperability KPIs</td><td style="text-align: center;">22</td></tr>
+    <tr><td style="text-align: center;">Figure 19</td><td>State Department Management Console & Endpoint Configuration</td><td style="text-align: center;">22</td></tr>
+    <tr><td style="text-align: center;">Figure 20</td><td>Service Schema Configuration & Dynamic Field Definition</td><td style="text-align: center;">23</td></tr>
+    <tr><td style="text-align: center;">Figure 21</td><td>REST API Interoperability Gateway Logs & Modal Payload Inspector</td><td style="text-align: center;">23</td></tr>
+    <tr><td style="text-align: center;">Figure 22</td><td>Postman Test Suite: GET /api/departments (Status 200 OK)</td><td style="text-align: center;">24</td></tr>
+    <tr><td style="text-align: center;">Figure 23</td><td>Postman Test Suite: POST /api/auth/login (JWT Token Generation)</td><td style="text-align: center;">24</td></tr>
+    <tr><td style="text-align: center;">Figure 24</td><td>Postman Test Suite: PATCH /api/applications/:id/status</td><td style="text-align: center;">25</td></tr>
+    <tr><td style="text-align: center;">Figure 25</td><td>Postman Test Suite: DELETE /api/departments/:id (Integrity Check)</td><td style="text-align: center;">25</td></tr>
+    <tr><td style="text-align: center;">Figure 26</td><td>MongoDB Shell (mongosh) Collection & Query Ledger Inspection</td><td style="text-align: center;">26</td></tr>
+    <tr><td style="text-align: center;">Figure 27</td><td>MahaConnect Final Working Multi-Portal Application Showcase</td><td style="text-align: center;">26</td></tr>
   </table>
 
   <!-- ==================== 8. LIST OF TABLES ==================== -->
@@ -535,16 +571,16 @@ function buildCollegeReportHtml() {
       <th style="width: 67%;">Table Title</th>
       <th style="width: 15%; text-align: center;">Page No.</th>
     </tr>
-    <tr><td style="text-align: center;">Table 1</td><td>Comparative Analysis of Existing Systems vs. MahaConnect</td><td style="text-align: center;">6</td></tr>
-    <tr><td style="text-align: center;">Table 2</td><td>User Roles and Permission Scopes</td><td style="text-align: center;">9</td></tr>
-    <tr><td style="text-align: center;">Table 3</td><td>Simulated Government Departments in MahaConnect</td><td style="text-align: center;">10</td></tr>
-    <tr><td style="text-align: center;">Table 4</td><td>Application Status Lifecycle States</td><td style="text-align: center;">10</td></tr>
-    <tr><td style="text-align: center;">Table 5</td><td>Hardware Requirements Specification</td><td style="text-align: center;">12</td></tr>
-    <tr><td style="text-align: center;">Table 6</td><td>Software Requirements Specification</td><td style="text-align: center;">13</td></tr>
-    <tr><td style="text-align: center;">Table 7</td><td>Database Collections & Schema Constraints</td><td style="text-align: center;">20</td></tr>
-    <tr><td style="text-align: center;">Table 8</td><td>Core REST API Endpoints Specification</td><td style="text-align: center;">24</td></tr>
-    <tr><td style="text-align: center;">Table 9</td><td>Role-Based Access Control (RBAC) Permission Matrix</td><td style="text-align: center;">30</td></tr>
-    <tr><td style="text-align: center;">Table 10</td><td>Automated Postman Test Case Execution Matrix</td><td style="text-align: center;">34</td></tr>
+    <tr><td style="text-align: center;">Table 1</td><td>Comparative Analysis of Existing Systems vs. MahaConnect</td><td style="text-align: center;">3</td></tr>
+    <tr><td style="text-align: center;">Table 2</td><td>User Roles and Permission Scopes</td><td style="text-align: center;">5</td></tr>
+    <tr><td style="text-align: center;">Table 3</td><td>Simulated Government Departments in MahaConnect</td><td style="text-align: center;">6</td></tr>
+    <tr><td style="text-align: center;">Table 4</td><td>Application Status Lifecycle States</td><td style="text-align: center;">6</td></tr>
+    <tr><td style="text-align: center;">Table 5</td><td>Hardware Requirements Specification</td><td style="text-align: center;">7</td></tr>
+    <tr><td style="text-align: center;">Table 6</td><td>Software Requirements Specification</td><td style="text-align: center;">7</td></tr>
+    <tr><td style="text-align: center;">Table 7</td><td>Database Collections & Schema Constraints</td><td style="text-align: center;">11</td></tr>
+    <tr><td style="text-align: center;">Table 8</td><td>Core REST API Endpoints Specification</td><td style="text-align: center;">12</td></tr>
+    <tr><td style="text-align: center;">Table 9</td><td>Role-Based Access Control (RBAC) Permission Matrix</td><td style="text-align: center;">13</td></tr>
+    <tr><td style="text-align: center;">Table 10</td><td>Automated Postman Test Case Execution Matrix</td><td style="text-align: center;">14</td></tr>
   </table>
 
   <!-- ==================== CHAPTER 1 – INTRODUCTION ==================== -->
@@ -785,8 +821,9 @@ MongoDB Document Store (Mongoose Models)
   <div class="page-break"></div>
   <div class="chapter-title">CHAPTER 4 – SYSTEM REQUIREMENTS & TECHNOLOGIES USED</div>
 
-  <h2>4.1 Functional Requirements</h2>
-  <ol>
+  <div style="font-size: 9.8pt; line-height: 1.38;">
+  <h2 style="margin-top: 6pt; margin-bottom: 3pt;">4.1 Functional Requirements</h2>
+  <ol style="margin-bottom: 4pt;">
     <li><strong>User Authentication:</strong> Secure registration and login using JWT tokens and bcrypt password hashing.</li>
     <li><strong>Role-Based Routing:</strong> Restrict portal routes based on verified user roles (Citizen, Officer, Admin).</li>
     <li><strong>Service Browsing & Filtering:</strong> Categorized directory of government services with search and department filtering.</li>
@@ -796,8 +833,8 @@ MongoDB Document Store (Mongoose Models)
     <li><strong>Centralized Administration:</strong> Manage departments, configure services, and inspect API telemetry logs.</li>
   </ol>
 
-  <h2>4.2 Non-Functional Requirements</h2>
-  <ol>
+  <h2 style="margin-top: 6pt; margin-bottom: 3pt;">4.2 Non-Functional Requirements</h2>
+  <ol style="margin-bottom: 4pt;">
     <li><strong>Usability:</strong> Responsive design supporting desktop, tablet, and mobile viewports via Tailwind CSS.</li>
     <li><strong>Performance:</strong> Sub-100ms API response latency for cached lookups and sub-200ms for application writes.</li>
     <li><strong>Security:</strong> Stateless JWT verification, input sanitization, HTTP security headers (Helmet), and CORS enforcement.</li>
@@ -805,46 +842,47 @@ MongoDB Document Store (Mongoose Models)
     <li><strong>Maintainability:</strong> Modular codebase separating controllers, routes, middleware, and database models.</li>
   </ol>
 
-  <h2>4.3 Hardware Requirements</h2>
+  <h2 style="margin-top: 6pt; margin-bottom: 2pt;">4.3 Hardware Requirements</h2>
   <div class="table-caption">Table 5: Hardware Requirements Specification</div>
-  <table>
+  <table style="margin: 2pt 0 4pt 0; font-size: 7.8pt;">
     <tr>
-      <th>Component</th>
-      <th>Minimum Development Specification</th>
-      <th>Recommended Specification</th>
+      <th style="padding: 2pt 4pt;">Component</th>
+      <th style="padding: 2pt 4pt;">Minimum Development Specification</th>
+      <th style="padding: 2pt 4pt;">Recommended Specification</th>
     </tr>
-    <tr><td>Processor</td><td>Intel Core i3 / AMD Ryzen 3 @ 2.0 GHz</td><td>Intel Core i5 / Apple Silicon M-series</td></tr>
-    <tr><td>Memory (RAM)</td><td>4 GB DDR4</td><td>8 GB – 16 GB DDR4/Unified</td></tr>
-    <tr><td>Storage</td><td>20 GB available SSD space</td><td>50 GB+ NVMe SSD space</td></tr>
-    <tr><td>Network</td><td>Active Internet Connection (2 Mbps)</td><td>Broadband Connection (10 Mbps+)</td></tr>
-    <tr><td>Display</td><td>1366 × 768 resolution</td><td>1920 × 1080 Full HD resolution</td></tr>
+    <tr><td style="padding: 1.5pt 4pt;">Processor</td><td style="padding: 1.5pt 4pt;">Intel Core i3 / AMD Ryzen 3 @ 2.0 GHz</td><td style="padding: 1.5pt 4pt;">Intel Core i5 / Apple Silicon M-series</td></tr>
+    <tr><td style="padding: 1.5pt 4pt;">Memory (RAM)</td><td style="padding: 1.5pt 4pt;">4 GB DDR4</td><td style="padding: 1.5pt 4pt;">8 GB – 16 GB DDR4/Unified</td></tr>
+    <tr><td style="padding: 1.5pt 4pt;">Storage</td><td style="padding: 1.5pt 4pt;">20 GB available SSD space</td><td style="padding: 1.5pt 4pt;">50 GB+ NVMe SSD space</td></tr>
+    <tr><td style="padding: 1.5pt 4pt;">Network</td><td style="padding: 1.5pt 4pt;">Active Internet Connection (2 Mbps)</td><td style="padding: 1.5pt 4pt;">Broadband Connection (10 Mbps+)</td></tr>
+    <tr><td style="padding: 1.5pt 4pt;">Display</td><td style="padding: 1.5pt 4pt;">1366 × 768 resolution</td><td style="padding: 1.5pt 4pt;">1920 × 1080 Full HD resolution</td></tr>
   </table>
 
-  <h2>4.4 Software Requirements</h2>
+  <h2 style="margin-top: 6pt; margin-bottom: 2pt;">4.4 Software Requirements</h2>
   <div class="table-caption">Table 6: Software Requirements Specification</div>
-  <table>
+  <table style="margin: 2pt 0 4pt 0; font-size: 7.8pt;">
     <tr>
-      <th>Software / Tool</th>
-      <th>Version / Environment</th>
-      <th>Purpose</th>
+      <th style="padding: 2pt 4pt;">Software / Tool</th>
+      <th style="padding: 2pt 4pt;">Version / Environment</th>
+      <th style="padding: 2pt 4pt;">Purpose</th>
     </tr>
-    <tr><td>Operating System</td><td>macOS Sequoia / Ubuntu 22.04 / Windows 11</td><td>Host Development Operating System</td></tr>
-    <tr><td>Runtime Environment</td><td>Node.js v20+ LTS / v24.6</td><td>JavaScript Server Execution Runtime</td></tr>
-    <tr><td>Database Engine</td><td>MongoDB Community v7.0 / Atlas</td><td>NoSQL Document Database Engine</td></tr>
-    <tr><td>Package Manager</td><td>npm v10+</td><td>Dependency Management Tool</td></tr>
-    <tr><td>API Testing Tool</td><td>Postman Desktop v11</td><td>REST API Functional Contract Verification</td></tr>
-    <tr><td>Browser Engine</td><td>Google Chrome / Chromium</td><td>Client Rendering & Puppeteer Automation</td></tr>
-    <tr><td>Version Control</td><td>Git v2.40+ & GitHub</td><td>Source Code Management</td></tr>
-    <tr><td>Hosting Platform</td><td>Vercel Serverless Edge Platform</td><td>Cloud Production Deployment</td></tr>
+    <tr><td style="padding: 1.5pt 4pt;">Operating System</td><td style="padding: 1.5pt 4pt;">macOS Sequoia / Ubuntu 22.04 / Windows 11</td><td style="padding: 1.5pt 4pt;">Host Development Operating System</td></tr>
+    <tr><td style="padding: 1.5pt 4pt;">Runtime Environment</td><td style="padding: 1.5pt 4pt;">Node.js v20+ LTS / v24.6</td><td style="padding: 1.5pt 4pt;">JavaScript Server Execution Runtime</td></tr>
+    <tr><td style="padding: 1.5pt 4pt;">Database Engine</td><td style="padding: 1.5pt 4pt;">MongoDB Community v7.0 / Atlas</td><td style="padding: 1.5pt 4pt;">NoSQL Document Database Engine</td></tr>
+    <tr><td style="padding: 1.5pt 4pt;">Package Manager</td><td style="padding: 1.5pt 4pt;">npm v10+</td><td style="padding: 1.5pt 4pt;">Dependency Management Tool</td></tr>
+    <tr><td style="padding: 1.5pt 4pt;">API Testing Tool</td><td style="padding: 1.5pt 4pt;">Postman Desktop v11</td><td style="padding: 1.5pt 4pt;">REST API Functional Contract Verification</td></tr>
+    <tr><td style="padding: 1.5pt 4pt;">Browser Engine</td><td style="padding: 1.5pt 4pt;">Google Chrome / Chromium</td><td style="padding: 1.5pt 4pt;">Client Rendering & Puppeteer Automation</td></tr>
+    <tr><td style="padding: 1.5pt 4pt;">Version Control</td><td style="padding: 1.5pt 4pt;">Git v2.40+ & GitHub</td><td style="padding: 1.5pt 4pt;">Source Code Management</td></tr>
+    <tr><td style="padding: 1.5pt 4pt;">Hosting Platform</td><td style="padding: 1.5pt 4pt;">Vercel Serverless Edge Platform</td><td style="padding: 1.5pt 4pt;">Cloud Production Deployment</td></tr>
   </table>
 
-  <h2>4.5 Technology Stack Details</h2>
-  <ul>
+  <h2 style="margin-top: 6pt; margin-bottom: 2pt;">4.5 Technology Stack Details</h2>
+  <ul style="margin-bottom: 0;">
     <li><strong>Frontend:</strong> React 18, Vite 6, Tailwind CSS 3.4, React Router v6, Axios, Lucide React icons.</li>
     <li><strong>Backend:</strong> Node.js, Express.js 4.21, Helmet, Express-Rate-Limit, CORS, Morgan logging.</li>
     <li><strong>Database:</strong> MongoDB Community, Mongoose ODM 8.9 with strict schemas.</li>
     <li><strong>Authentication:</strong> jsonwebtoken (JWT 9.0) with HMAC-SHA256 signing, bcryptjs 3.0.</li>
   </ul>
+  </div>
 
   <!-- ==================== CHAPTER 5 – SYSTEM ANALYSIS ==================== -->
   <div class="page-break"></div>
@@ -984,37 +1022,37 @@ MongoDB Document Store (Mongoose Models)
     <li><code>pages/admin/</code>: Admin Dashboard, Department Management, Service Management, API Logs Telemetry.</li>
   </ul>
 
-  <h2>7.2 Backend Architecture & Routing Pipeline</h2>
+  <h2 style="margin-top: 8pt;">7.2 Backend Architecture & Routing Pipeline</h2>
   <p>
     The backend runs on Node.js and Express.js, structured across four primary layers:
   </p>
   <ul>
-    <li><strong>Middleware Pipeline:</strong> <code>helmet()</code> for HTTP header protection, <code>cors()</code> for origin control, <code>express.json()</code> for body parsing, and custom <code>verifyToken</code> for JWT validation.</li>
+    <li><strong>Middleware Pipeline:</strong> <code>helmet()</code> for HTTP headers, <code>cors()</code> for origin control, <code>express.json()</code> for body parsing, and <code>verifyToken</code> for JWT validation.</li>
     <li><strong>Controllers:</strong> Encapsulate CRUD logic and cross-departmental dispatch coordination.</li>
     <li><strong>Simulated Department Services:</strong> Mock adapters that simulate response latency and allocate tracking tokens.</li>
   </ul>
 
-  <h2>7.3 REST API Implementation</h2>
+  <h2 style="margin-top: 8pt;">7.3 REST API Implementation</h2>
   <div class="table-caption">Table 8: Core REST API Endpoints Specification</div>
-  <table>
+  <table style="margin: 4pt 0 6pt 0; font-size: 8pt;">
     <tr>
-      <th>Endpoint</th>
-      <th>Method</th>
-      <th>Access Role</th>
-      <th>Description</th>
+      <th style="padding: 2.5pt 4pt;">Endpoint</th>
+      <th style="padding: 2.5pt 4pt;">Method</th>
+      <th style="padding: 2.5pt 4pt;">Access Role</th>
+      <th style="padding: 2.5pt 4pt;">Description</th>
     </tr>
-    <tr><td>/api/auth/register</td><td>POST</td><td>Public</td><td>Register a new citizen account</td></tr>
-    <tr><td>/api/auth/login</td><td>POST</td><td>Public</td><td>Authenticate user and issue JWT bearer token</td></tr>
-    <tr><td>/api/departments</td><td>GET</td><td>Public</td><td>Fetch all registered active departments</td></tr>
-    <tr><td>/api/services</td><td>GET</td><td>Public</td><td>Fetch all services with dynamic parameter schemas</td></tr>
-    <tr><td>/api/applications</td><td>POST</td><td>Citizen</td><td>Submit new application with dynamic form data</td></tr>
-    <tr><td>/api/applications</td><td>GET</td><td>Citizen / Admin</td><td>List applications scoped to user role</td></tr>
-    <tr><td>/api/applications/:id</td><td>GET</td><td>Citizen / Officer / Admin</td><td>Retrieve full application details and timeline</td></tr>
-    <tr><td>/api/applications/:id/status</td><td>PATCH</td><td>Officer / Admin</td><td>Update status and append remarks to timeline</td></tr>
-    <tr><td>/api/admin/api-logs</td><td>GET</td><td>Admin</td><td>Fetch real-time interoperability gateway logs</td></tr>
+    <tr><td style="padding: 2pt 4pt;">/api/auth/register</td><td style="padding: 2pt 4pt;">POST</td><td style="padding: 2pt 4pt;">Public</td><td style="padding: 2pt 4pt;">Register a new citizen account</td></tr>
+    <tr><td style="padding: 2pt 4pt;">/api/auth/login</td><td style="padding: 2pt 4pt;">POST</td><td style="padding: 2pt 4pt;">Public</td><td style="padding: 2pt 4pt;">Authenticate user and issue JWT bearer token</td></tr>
+    <tr><td style="padding: 2pt 4pt;">/api/departments</td><td style="padding: 2pt 4pt;">GET</td><td style="padding: 2pt 4pt;">Public</td><td style="padding: 2pt 4pt;">Fetch all registered active departments</td></tr>
+    <tr><td style="padding: 2pt 4pt;">/api/services</td><td style="padding: 2pt 4pt;">GET</td><td style="padding: 2pt 4pt;">Public</td><td style="padding: 2pt 4pt;">Fetch all services with dynamic parameter schemas</td></tr>
+    <tr><td style="padding: 2pt 4pt;">/api/applications</td><td style="padding: 2pt 4pt;">POST</td><td style="padding: 2pt 4pt;">Citizen</td><td style="padding: 2pt 4pt;">Submit new application with dynamic form data</td></tr>
+    <tr><td style="padding: 2pt 4pt;">/api/applications</td><td style="padding: 2pt 4pt;">GET</td><td style="padding: 2pt 4pt;">Citizen / Admin</td><td style="padding: 2pt 4pt;">List applications scoped to user role</td></tr>
+    <tr><td style="padding: 2pt 4pt;">/api/applications/:id</td><td style="padding: 2pt 4pt;">GET</td><td style="padding: 2pt 4pt;">Citizen / Officer / Admin</td><td style="padding: 2pt 4pt;">Retrieve full application details and timeline</td></tr>
+    <tr><td style="padding: 2pt 4pt;">/api/applications/:id/status</td><td style="padding: 2pt 4pt;">PATCH</td><td style="padding: 2pt 4pt;">Officer / Admin</td><td style="padding: 2pt 4pt;">Update status and append remarks to timeline</td></tr>
+    <tr><td style="padding: 2pt 4pt;">/api/admin/api-logs</td><td style="padding: 2pt 4pt;">GET</td><td style="padding: 2pt 4pt;">Admin</td><td style="padding: 2pt 4pt;">Fetch real-time interoperability gateway logs</td></tr>
   </table>
 
-  <h2>7.4 Complete Application Workflow</h2>
+  <h2 style="margin-top: 8pt;">7.4 Complete Application Workflow</h2>
   <p>
     The complete citizen application lifecycle operates through five sequential stages:
   </p>
@@ -1227,6 +1265,8 @@ user.password = await bcrypt.hash(password, salt);
     <div class="figure-caption">Figure 7: Unified Authentication Portal with Seeded Demo Credentials</div>
   </div>
 
+  <div class="page-break"></div>
+
   <div class="figure-box">
     <img src="${img03}" class="figure-img" alt="Citizen Dashboard">
     <div class="figure-caption">Figure 8: Citizen Self-Service Dashboard with Metric Cards & Quick Navigation</div>
@@ -1236,6 +1276,8 @@ user.password = await bcrypt.hash(password, salt);
     <img src="${img04}" class="figure-img" alt="Services Catalog">
     <div class="figure-caption">Figure 9: Cross-Departmental Government Services Directory with Filtering</div>
   </div>
+
+  <div class="page-break"></div>
 
   <div class="figure-box">
     <img src="${img05}" class="figure-img" alt="Application Form">
@@ -1247,6 +1289,8 @@ user.password = await bcrypt.hash(password, salt);
     <div class="figure-caption">Figure 11: Client-Side Form Validation Alert & Error Prevention</div>
   </div>
 
+  <div class="page-break"></div>
+
   <div class="figure-box">
     <img src="${img07}" class="figure-img" alt="Document Upload">
     <div class="figure-caption">Figure 12: Document Upload & Multi-Format Verification</div>
@@ -1256,6 +1300,8 @@ user.password = await bcrypt.hash(password, salt);
     <img src="${img08}" class="figure-img" alt="Submission Confirmation">
     <div class="figure-caption">Figure 13: Application Submission Confirmation & Unique Reference Generation</div>
   </div>
+
+  <div class="page-break"></div>
 
   <div class="figure-box">
     <img src="${img09}" class="figure-img" alt="Tracking Timeline">
@@ -1267,6 +1313,8 @@ user.password = await bcrypt.hash(password, salt);
     <div class="figure-caption">Figure 15: Department Officer Scrutiny Console & Pending Application Queue</div>
   </div>
 
+  <div class="page-break"></div>
+
   <div class="figure-box">
     <img src="${img11}" class="figure-img" alt="Officer Review">
     <div class="figure-caption">Figure 16: Officer Application Scrutiny Dossier with Inline Document Viewer</div>
@@ -1276,6 +1324,8 @@ user.password = await bcrypt.hash(password, salt);
     <img src="${img12}" class="figure-img" alt="Status Update">
     <div class="figure-caption">Figure 17: Officer Status Transition Pipeline & Remarks Endorsement</div>
   </div>
+
+  <div class="page-break"></div>
 
   <div class="figure-box">
     <img src="${img13}" class="figure-img" alt="Admin Dashboard">
@@ -1287,6 +1337,8 @@ user.password = await bcrypt.hash(password, salt);
     <div class="figure-caption">Figure 19: State Department Management Console & Endpoint Configuration</div>
   </div>
 
+  <div class="page-break"></div>
+
   <div class="figure-box">
     <img src="${img15}" class="figure-img" alt="Service Management">
     <div class="figure-caption">Figure 20: Service Schema Configuration & Dynamic Field Definition</div>
@@ -1296,6 +1348,8 @@ user.password = await bcrypt.hash(password, salt);
     <img src="${img16}" class="figure-img" alt="API Logs">
     <div class="figure-caption">Figure 21: REST API Interoperability Gateway Logs & Modal Payload Inspector</div>
   </div>
+
+  <div class="page-break"></div>
 
   <div class="figure-box">
     <img src="${img17}" class="figure-img" alt="Postman GET">
@@ -1307,6 +1361,8 @@ user.password = await bcrypt.hash(password, salt);
     <div class="figure-caption">Figure 23: Postman Test Suite: POST /api/auth/login (JWT Token Generation)</div>
   </div>
 
+  <div class="page-break"></div>
+
   <div class="figure-box">
     <img src="${img19}" class="figure-img" alt="Postman PATCH">
     <div class="figure-caption">Figure 24: Postman Test Suite: PATCH /api/applications/:id/status</div>
@@ -1316,6 +1372,8 @@ user.password = await bcrypt.hash(password, salt);
     <img src="${img20}" class="figure-img" alt="Postman DELETE">
     <div class="figure-caption">Figure 25: Postman Test Suite: DELETE /api/departments/:id (Integrity Check)</div>
   </div>
+
+  <div class="page-break"></div>
 
   <div class="figure-box">
     <img src="${img21}" class="figure-img" alt="MongoDB Records">
@@ -1331,7 +1389,7 @@ user.password = await bcrypt.hash(password, salt);
   <div class="page-break"></div>
   <div class="chapter-title">PROJECT DETAILS</div>
 
-  <div style="max-width: 600px; margin: 40pt auto 0 auto; border: 1.5pt solid #000000; padding: 25pt;">
+  <div style="max-width: 600px; margin: 30pt auto 0 auto; border: 1.5pt solid #000000; padding: 22pt;">
     <table style="border: none; margin: 0;">
       <tr style="background: none;"><td style="border: none; font-weight: bold; width: 40%;">DEPARTMENT:</td><td style="border: none;">Information Technology</td></tr>
       <tr style="background: none;"><td style="border: none; font-weight: bold;">PROJECT TITLE:</td><td style="border: none;">MahaConnect: Government Platform Interoperability System</td></tr>
@@ -1339,7 +1397,7 @@ user.password = await bcrypt.hash(password, salt);
       <tr style="background: none;"><td style="border: none; font-weight: bold;">ROLL NOs:</td><td style="border: none;">202402104<br>202402111</td></tr>
       <tr style="background: none;"><td style="border: none; font-weight: bold;">CLASS:</td><td style="border: none;">TY BSc IT</td></tr>
       <tr style="background: none;"><td style="border: none; font-weight: bold;">SEMESTER:</td><td style="border: none;">V</td></tr>
-      <tr style="background: none;"><td style="border: none; font-weight: bold;">PROJECT GUIDE:</td><td style="border: none;">[PROJECT GUIDE NAME]</td></tr>
+      <tr style="background: none;"><td style="border: none; font-weight: bold;">PROJECT GUIDE:</td><td style="border: none;">Mr. Pratharv Surve</td></tr>
       <tr style="background: none;"><td style="border: none; font-weight: bold;">ACADEMIC YEAR:</td><td style="border: none;">2026-2027</td></tr>
       <tr style="background: none;"><td style="border: none; font-weight: bold;">COLLEGE:</td><td style="border: none;">ZSCT's Thakur Shyamnarayan Degree College</td></tr>
       <tr style="background: none;"><td style="border: none; font-weight: bold;">DEPLOYMENT URL:</td><td style="border: none;"><a href="https://mahaconnect-rose.vercel.app">https://mahaconnect-rose.vercel.app</a></td></tr>
