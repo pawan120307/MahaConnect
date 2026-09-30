@@ -30,3 +30,5 @@ Thumbs.db
 # Uploads directory contents (keep directory with .gitkeep)
 server/uploads/*
 !server/uploads/.gitkeep
+.vercel
+.env*.local
