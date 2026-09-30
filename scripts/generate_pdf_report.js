@@ -1024,19 +1024,7 @@ async function generatePdf() {
   await sleep(1500);
 
   const headerFooterOptions = {
-    displayHeaderFooter: true,
-    headerTemplate: `
-      <div style="font-family: Arial, sans-serif; font-size: 8pt; color: #94a3b8; width: 100%; padding: 0 15mm; display: flex; justify-content: space-between; border-bottom: 0.5pt solid #e2e8f0; padding-bottom: 2pt;">
-        <span>MahaConnect – Government Platform Interoperability System</span>
-        <span>TY BSc IT Sem V • Pawan Mishra & Samarth Nivadunge</span>
-      </div>
-    `,
-    footerTemplate: `
-      <div style="font-family: Arial, sans-serif; font-size: 8pt; color: #94a3b8; width: 100%; padding: 0 15mm; display: flex; justify-content: space-between; border-top: 0.5pt solid #e2e8f0; padding-top: 2pt;">
-        <span>Department of Information Technology</span>
-        <span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span>
-      </div>
-    `,
+    displayHeaderFooter: false,
   };
 
   console.log('🖨️ Generating PDF: ' + OUTPUT_PDF_PRIMARY);

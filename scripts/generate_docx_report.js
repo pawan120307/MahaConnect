@@ -234,58 +234,6 @@ async function buildDocx() {
             },
           },
         },
-        headers: {
-          default: new Header({
-            children: [
-              new Paragraph({
-                alignment: AlignmentType.RIGHT,
-                children: [
-                  new TextRun({
-                    text: 'MahaConnect – Government Platform Interoperability System | TY BSc IT Sem V',
-                    font: 'Arial',
-                    size: 16,
-                    color: '94a3b8',
-                  }),
-                ],
-              }),
-            ],
-          }),
-        },
-        footers: {
-          default: new Footer({
-            children: [
-              new Paragraph({
-                alignment: AlignmentType.RIGHT,
-                children: [
-                  new TextRun({
-                    text: 'Pawan Mishra & Samarth Nivadunge • Page ',
-                    font: 'Arial',
-                    size: 15,
-                    color: '94a3b8',
-                  }),
-                  new TextRun({
-                    children: [PageNumber.CURRENT],
-                    font: 'Arial',
-                    size: 15,
-                    color: '94a3b8',
-                  }),
-                  new TextRun({
-                    text: ' of ',
-                    font: 'Arial',
-                    size: 15,
-                    color: '94a3b8',
-                  }),
-                  new TextRun({
-                    children: [PageNumber.TOTAL_PAGES],
-                    font: 'Arial',
-                    size: 15,
-                    color: '94a3b8',
-                  }),
-                ],
-              }),
-            ],
-          }),
-        },
         children: [
           // ==================== COVER PAGE ====================
           new Paragraph({

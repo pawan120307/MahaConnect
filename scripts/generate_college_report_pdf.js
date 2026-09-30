@@ -1393,23 +1393,15 @@ async function generatePdf() {
       left: '16mm',
       right: '16mm',
     },
-    displayHeaderFooter: true,
-    headerTemplate: `
-      <div style="font-family: Arial, sans-serif; font-size: 8pt; color: #64748b; width: 100%; padding: 0 16mm; display: flex; justify-content: space-between; border-bottom: 0.5pt solid #cbd5e1; padding-bottom: 2pt;">
-        <span>ZSCT'S THAKUR SHYAMNARAYAN DEGREE COLLEGE • DEPT. OF IT</span>
-        <span>MahaConnect Capstone Report</span>
-      </div>
-    `,
-    footerTemplate: `
-      <div style="font-family: Arial, sans-serif; font-size: 8pt; color: #64748b; width: 100%; padding: 0 16mm; display: flex; justify-content: space-between; border-top: 0.5pt solid #cbd5e1; padding-top: 2pt;">
-        <span>TY BSc IT Sem V • Pawan Mishra & Samarth Nivadunge</span>
-        <span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span>
-      </div>
-    `,
+    displayHeaderFooter: false,
   });
 
+  const originalPdf = path.join(__dirname, '../MahaConnect_FSDM_Project_Report_Pawan_Mishra.pdf');
+  fs.copyFileSync(OUTPUT_PDF, originalPdf);
+  console.log('📋 Also synchronized: ' + originalPdf);
+
   await browser.close();
-  console.log('✅ COLLEGE STYLE PDF GENERATED SUCCESSFULLY: ' + OUTPUT_PDF);
+  console.log('✅ COLLEGE STYLE PDF GENERATED SUCCESSFULLY (NO HEADERS/FOOTERS): ' + OUTPUT_PDF);
 }
 
 generatePdf().catch((err) => {

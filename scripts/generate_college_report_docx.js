@@ -233,58 +233,6 @@ async function buildDocx() {
             },
           },
         },
-        headers: {
-          default: new Header({
-            children: [
-              new Paragraph({
-                alignment: AlignmentType.RIGHT,
-                children: [
-                  new TextRun({
-                    text: "ZSCT'S THAKUR SHYAMNARAYAN DEGREE COLLEGE • DEPT. OF IT",
-                    font: 'Arial',
-                    size: 15,
-                    color: '64748b',
-                  }),
-                ],
-              }),
-            ],
-          }),
-        },
-        footers: {
-          default: new Footer({
-            children: [
-              new Paragraph({
-                alignment: AlignmentType.RIGHT,
-                children: [
-                  new TextRun({
-                    text: 'MahaConnect Capstone Report | Page ',
-                    font: 'Arial',
-                    size: 15,
-                    color: '64748b',
-                  }),
-                  new TextRun({
-                    children: [PageNumber.CURRENT],
-                    font: 'Arial',
-                    size: 15,
-                    color: '64748b',
-                  }),
-                  new TextRun({
-                    text: ' of ',
-                    font: 'Arial',
-                    size: 15,
-                    color: '64748b',
-                  }),
-                  new TextRun({
-                    children: [PageNumber.TOTAL_PAGES],
-                    font: 'Arial',
-                    size: 15,
-                    color: '64748b',
-                  }),
-                ],
-              }),
-            ],
-          }),
-        },
         children: [
           // ==================== COVER PAGE ====================
           new Paragraph({
@@ -1166,7 +1114,10 @@ async function buildDocx() {
 
   const buffer = await Packer.toBuffer(doc);
   fs.writeFileSync(OUTPUT_DOCX, buffer);
-  console.log('✅ COLLEGE STYLE DOCX GENERATED SUCCESSFULLY: ' + OUTPUT_DOCX);
+  const originalDocx = path.join(__dirname, '../MahaConnect_FSDM_Project_Report_Pawan_Mishra.docx');
+  fs.writeFileSync(originalDocx, buffer);
+  console.log('📋 Also synchronized: ' + originalDocx);
+  console.log('✅ COLLEGE STYLE DOCX GENERATED SUCCESSFULLY (NO HEADERS/FOOTERS): ' + OUTPUT_DOCX);
 }
 
 buildDocx().catch((err) => {
