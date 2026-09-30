@@ -36,3 +36,6 @@ server/uploads/*
 # Automation & Report generation scripts
 scripts/
 
+# Project Reports (PDF & Word documents)
+*.pdf
+*.docx
